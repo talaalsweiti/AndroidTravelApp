@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String[] country = { "India", "USA", "China", "Japan", "Other"};
 
@@ -48,8 +50,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View view) {
                 User newUser =new User();
+                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                        "[a-zA-Z0-9_+&*-]+)*@" +
+                        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                        "A-Z]{2,7}$";
+                Pattern pat = Pattern.compile(emailRegex);
 
-                if(emailEditText.getText().toString().isEmpty()) {
+                if(emailEditText.getText().toString().isEmpty() || ! pat.matcher(emailEditText.getText().toString()).matches()) {
                     emailEditText.setError("PLEASE ENTER A VALID EMAIL ADDRESS");
                     emailEditText.requestFocus();
                 }
@@ -84,9 +91,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 newUser.setDestination(spin.getSelectedItem().toString());
 
 
-//                DataBaseHelper dataBaseHelper =new
-//                        DataBaseHelper(SignupActivity.this,"TRAVEL_GUID",null,1);
-//                dataBaseHelper.insertCustomer(newUser);
+                DataBaseHelper dataBaseHelper =new
+                        DataBaseHelper(SignupActivity.this,"TRAVEL_GUID",null,1);
+                dataBaseHelper.insertCustomer(newUser);
 
 //                Intent intent=new Intent(SignupActivity.this,SignupActivity.class);
 //                SignupActivity.this.startActivity(intent);
