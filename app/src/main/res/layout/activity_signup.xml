@@ -9,7 +9,7 @@
     tools:context=".SignupActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
@@ -51,27 +51,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="Name"
-
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignUpFullName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/comfortaabold"
-                android:inputType="text"
-                android:singleLine="true"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Email"
             android:textColorHint="@color/black"
@@ -89,41 +68,60 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/comfortaabold"
-                android:text="+ 972"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:hint="Mobile Number"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:hint="First Name"
+
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtSignUpMobile"
-                    android:layout_width="match_parent"
+                    android:id="@+id/edtSignUpFirstName"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/comfortaabold"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:singleLine="true"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="Last Name"
+
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSignUpLastName"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaabold"
+                    android:inputType="text"
+                    android:singleLine="true"
+
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -170,7 +168,21 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
+            android:layout_marginTop="16dp">
+            <!--Spinner widget-->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
 
             <ProgressBar
                 android:id="@+id/signUpProgressBar"
