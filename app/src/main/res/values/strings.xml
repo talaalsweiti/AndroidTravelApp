@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">TravelApp</string>
 
+    <string name="ek_img_content">ExportKit Image</string>
+
+    <string name="login_ek1_string">Login</string>
+
+    <string name="email_string">Email</string>
+
+    <string name="email_address_string">Email Address</string>
+
+    <string name="password_string">Password</string>
+
+    <string name="password_ek1_string">Password</string>
+
+
+    -<string name="forgot_password__string">
+
+<u>Forgot password?</u>
+
+</string>
+
+    <string name="remember_me_string">Remember me</string>
+
+    <string name="login_ek2_string">Login</string>
+
+    <string name="don_t_have_an_account__signup_string">Dont have an account? Signup</string>
 </resources>
