@@ -117,9 +117,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     ll.addView(textView11);
                 }
 
-//                Intent intent=new Intent(SignupActivity.this,SignupActivity.class);
-//                SignupActivity.this.startActivity(intent);
-//                finish();
+                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
+                SignupActivity.this.startActivity(intent);
+                finish();
 
 
             }
