@@ -14,7 +14,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE USER(EMAIL TEXT PRIMARY KEY,FIRSTNAME TEXT," +
+        sqLiteDatabase.execSQL("CREATE TABLE USERS(EMAIL TEXT PRIMARY KEY,FIRSTNAME TEXT," +
                 " LASTNAME TEXT,PASSWORD TEXT,DESTINATION TEXT)");
     }
 
@@ -22,7 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-    public void insertCustomer(User user) {
+    public void insertUser(User user) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("EMAIL", user.getEmail());
@@ -30,10 +30,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("LASTNAME", user.getLastName());
         contentValues.put("PASSWORD", user.getPassword());
         contentValues.put("DESTINATION", user.getDestination());
-        sqLiteDatabase.insert("USER", null, contentValues);
+        sqLiteDatabase.insert("USERS", null, contentValues);
     }
     public Cursor getAllUsers() {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM USER", null);
+        return sqLiteDatabase.rawQuery("SELECT * FROM USERS", null);
     }
+
 }

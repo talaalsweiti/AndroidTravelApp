@@ -3,13 +3,16 @@ package com.example.travelapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
@@ -28,6 +31,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         //Creating the ArrayAdapter instance having the country list
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
@@ -87,13 +91,31 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     PassEditText.requestFocus();
                 }
                 else newUser.setPassword(PassEditText.getText().toString());
-
                 newUser.setDestination(spin.getSelectedItem().toString());
 
 
-//                DataBaseHelper dataBaseHelper =new
-//                        DataBaseHelper(SignupActivity.this,"TRAVEL_GUID",null,1);
-//                dataBaseHelper.insertCustomer(newUser);
+                DataBaseHelper dataBaseHelper =new
+                        DataBaseHelper(SignupActivity.this,"TRAVEL_APP",null,1);
+                dataBaseHelper.insertUser(newUser);
+
+
+
+                Cursor allUsersCursor = dataBaseHelper.getAllUsers();
+                LinearLayout ll = (LinearLayout) findViewById(R.id.LinearLayout);
+                ll.removeAllViews();
+                while (allUsersCursor.moveToNext()) {
+                    TextView textView11 = new TextView(SignupActivity.this);
+                    textView11.setText(
+                            "Email= " + allUsersCursor.getString(0)
+                                    + "\nFirst Name= " + allUsersCursor.getString(1)
+                                    + "\nLast Name= " + allUsersCursor.getString(2)
+                                    + "\nPassword= " + allUsersCursor.getString(3)
+                                    + "\nDest= " + allUsersCursor.getString(4)
+
+                                    + "\n\n"
+                    );
+                    ll.addView(textView11);
+                }
 
 //                Intent intent=new Intent(SignupActivity.this,SignupActivity.class);
 //                SignupActivity.this.startActivity(intent);
@@ -116,4 +138,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> arg0) {
 
     }
+
+
+
 }
