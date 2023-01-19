@@ -228,8 +228,8 @@
                 android:clickable="true"
                 android:fontFamily="@font/comfortaabold"
                 android:onClick="signIn"
-                android:text="Sign In"
-                android:textColor="@color/red"
+                android:text="@string/txtSignIn"
+                android:textColor="@color/purple_200"
                 android:textSize="16sp" />
 
 

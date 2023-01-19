@@ -13,11 +13,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] continent = { "Asia", "Africa", "North America", "South America", "Antarctica", "Europe", "Australia"};
+    String[] continent = {"Asia", "Africa", "North America", "South America", "Antarctica", "Europe", "Australia"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         spin.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,continent);
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, continent);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Setting the ArrayAdapter data on the Spinner
@@ -51,84 +53,77 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         addCustomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean flg = true;
-                User newUser =new User();
-                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                User newUser = new User();
+                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                         "[a-zA-Z0-9_+&*-]+)*@" +
                         "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                         "A-Z]{2,7}$";
                 Pattern pat = Pattern.compile(emailRegex);
 
-                if(emailEditText.getText().toString().isEmpty() || ! pat.matcher(emailEditText.getText().toString()).matches()) {
+                if (emailEditText.getText().toString().isEmpty() || !pat.matcher(emailEditText.getText().toString()).matches()) {
                     emailEditText.setError("PLEASE ENTER A VALID EMAIL ADDRESS");
                     emailEditText.requestFocus();
-                    flg=false;
-                }
-                else {
+                } else {
                     newUser.setEmail(emailEditText.getText().toString());
-                    flg = true;
                 }
 
-                if(firstNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
+                if (firstNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
                     firstNameEditText.setError("PLEASE ENTER A VALID FIRST NAME");
                     firstNameEditText.requestFocus();
-                    flg=false;
-                }
-                else {
+
+                } else {
                     newUser.setFirstName(firstNameEditText.getText().toString());
-                    flg= true;
+
                 }
 
-                if(lastNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3 ) {
+                if (lastNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
                     lastNameEditText.setError("PLEASE ENTER A VALID LAST NAME");
                     lastNameEditText.requestFocus();
-                    flg=false;
-                }
-                else {
+
+                } else {
                     newUser.setLastName(lastNameEditText.getText().toString());
-                    flg=true;
+
                 }
 
-                if(PassEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 15 || PassEditText.getText().toString().length() < 8
-                || ! PassEditText.getText().toString().matches(".*\\d.*")
-                || ! PassEditText.getText().toString().matches(".*[a-z].*")
-                        || ! PassEditText.getText().toString().matches(".*[A-Z].*")   ) {
+                if (PassEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 15 || PassEditText.getText().toString().length() < 8
+                        || !PassEditText.getText().toString().matches(".*\\d.*")
+                        || !PassEditText.getText().toString().matches(".*[a-z].*")
+                        || !PassEditText.getText().toString().matches(".*[A-Z].*")) {
                     PassEditText.setError("PLEASE ENTER A VALID PASSWORD");
                     PassEditText.requestFocus();
-                    flg=false;
-                }
-                else if (PassEditText.getText().toString().compareTo(confirmPassEditText.getText().toString()) != 0)
-                {
+
+                } else if (PassEditText.getText().toString().compareTo(confirmPassEditText.getText().toString()) != 0) {
                     PassEditText.setError("PASSWORD DOES NOT MATCH");
                     PassEditText.requestFocus();
-                    flg=false;
-                }
-                else {
+                } else {
                     newUser.setPassword(PassEditText.getText().toString());
-                    flg=true;
                 }
                 newUser.setDestination(spin.getSelectedItem().toString());
 
-
-                DataBaseHelper dataBaseHelper =new
-                        DataBaseHelper(SignupActivity.this,"TRAVEL_APP",null,1);
-                if(flg)
+                DataBaseHelper dataBaseHelper = new
+                        DataBaseHelper(SignupActivity.this, "TRAVEL_APP", null, 1);
+                if (newUser.getEmail() != null && newUser.getPassword() != null && newUser.getFirstName() != null && newUser.getLastName() != null) {
                     dataBaseHelper.insertUser(newUser);
 
-                Cursor allUsersCursor = dataBaseHelper.getAllUsers();
-                LinearLayout ll = findViewById(R.id.LinearLayout);
-                ll.removeAllViews();
-                while (allUsersCursor.moveToNext()) {
-                    TextView textView11 = new TextView(SignupActivity.this);
-                    textView11.setText(
-                            "Email= " + allUsersCursor.getString(0)
-                                    + "\nFirst Name= " + allUsersCursor.getString(1)
-                                    + "\nLast Name= " + allUsersCursor.getString(2)
-                                    + "\nPassword= " + allUsersCursor.getString(3)
-                                    + "\nDest= " + allUsersCursor.getString(4)
-                                    + "\n\n"
-                    );
-                    ll.addView(textView11);
+                    Cursor allUsersCursor = dataBaseHelper.getAllUsers();
+                    LinearLayout ll = findViewById(R.id.LinearLayout);
+                    ll.removeAllViews();
+                    while (allUsersCursor.moveToNext()) {
+                        TextView textView11 = new TextView(SignupActivity.this);
+                        textView11.setText(
+                                "Email= " + allUsersCursor.getString(0)
+                                        + "\nFirst Name= " + allUsersCursor.getString(1)
+                                        + "\nLast Name= " + allUsersCursor.getString(2)
+                                        + "\nPassword= " + allUsersCursor.getString(3)
+                                        + "\nDest= " + allUsersCursor.getString(4)
+                                        + "\n\n"
+                        );
+                        ll.addView(textView11);
+                    }
+                }
+                else {
+                    Toast.makeText(SignupActivity.this, "ERROR SIGN UP",
+                            Toast.LENGTH_SHORT).show();
                 }
 
 //                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
@@ -137,7 +132,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
             }
         });
-
 
 
     }
@@ -151,10 +145,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> arg0) {
 
     }
-    /** Called when the user touches the button */
+
+    /**
+     * Called when the user touches the button
+     */
     public void signIn(View view) {
         // Do something in response to button click
-        Intent intent=new Intent(SignupActivity.this,LoginActivity.class);
+        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
         SignupActivity.this.startActivity(intent);
     }
 

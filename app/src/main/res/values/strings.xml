@@ -12,6 +12,9 @@
     <string name="password_string">Password</string>
 
     <string name="password_ek1_string">Password</string>
+    <string name="txtSignIn"><u>Sign In</u></string>
+    <string name="txtSignUp"><u>Sign Up</u></string>
+
 
 
     -

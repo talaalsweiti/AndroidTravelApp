@@ -90,10 +90,27 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Remember Me"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="16dp">
 
             <ProgressBar
                 android:id="@+id/signInProgressBar"
@@ -119,23 +136,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="207dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Remember Me"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="32dp"
             android:gravity="center"
@@ -154,8 +154,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:clickable="true"
                 android:fontFamily="@font/comfortaabold"
-                android:text="Sign Up"
+                android:onClick="signUp"
+                android:text="@string/txtSignUp"
                 android:textColor="@color/purple_200"
                 android:textSize="20sp" />
 
