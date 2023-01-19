@@ -52,6 +52,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         addCustomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Boolean flg = true;
                 User newUser =new User();
                 String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                         "[a-zA-Z0-9_+&*-]+)*@" +
@@ -62,20 +63,32 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 if(emailEditText.getText().toString().isEmpty() || ! pat.matcher(emailEditText.getText().toString()).matches()) {
                     emailEditText.setError("PLEASE ENTER A VALID EMAIL ADDRESS");
                     emailEditText.requestFocus();
+                    flg=false;
                 }
-                else newUser.setEmail(emailEditText.getText().toString());
+                else {
+                    newUser.setEmail(emailEditText.getText().toString());
+                    flg = true;
+                }
 
                 if(firstNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
                     firstNameEditText.setError("PLEASE ENTER A VALID FIRST NAME");
                     firstNameEditText.requestFocus();
+                    flg=false;
                 }
-                else newUser.setFirstName(firstNameEditText.getText().toString());
+                else {
+                    newUser.setFirstName(firstNameEditText.getText().toString());
+                    flg= true;
+                }
 
                 if(lastNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3 ) {
                     lastNameEditText.setError("PLEASE ENTER A VALID LAST NAME");
                     lastNameEditText.requestFocus();
+                    flg=false;
                 }
-                else newUser.setLastName(lastNameEditText.getText().toString());
+                else {
+                    newUser.setLastName(lastNameEditText.getText().toString());
+                    flg=true;
+                }
 
                 if(PassEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 15 || PassEditText.getText().toString().length() < 8
                 || ! PassEditText.getText().toString().matches(".*\\d.*")
@@ -83,19 +96,25 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                         || ! PassEditText.getText().toString().matches(".*[A-Z].*")   ) {
                     PassEditText.setError("PLEASE ENTER A VALID PASSWORD");
                     PassEditText.requestFocus();
+                    flg=false;
                 }
                 else if (PassEditText.getText().toString().compareTo(confirmPassEditText.getText().toString()) != 0)
                 {
                     PassEditText.setError("PASSWORD DOES NOT MATCH");
                     PassEditText.requestFocus();
+                    flg=false;
                 }
-                else newUser.setPassword(PassEditText.getText().toString());
+                else {
+                    newUser.setPassword(PassEditText.getText().toString());
+                    flg=true;
+                }
                 newUser.setDestination(spin.getSelectedItem().toString());
 
 
                 DataBaseHelper dataBaseHelper =new
                         DataBaseHelper(SignupActivity.this,"TRAVEL_APP",null,1);
-                dataBaseHelper.insertUser(newUser);
+                if(flg)
+                    dataBaseHelper.insertUser(newUser);
 
 
 
