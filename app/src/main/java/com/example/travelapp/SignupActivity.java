@@ -17,8 +17,7 @@ import android.widget.TextView;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] country = { "India", "USA", "China", "Japan", "Other"};
-
+    String[] continent = { "Asia", "Africa", "North America", "South America", "Antarctica", "Europe", "Australia"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         spin.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,continent);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Setting the ArrayAdapter data on the Spinner
@@ -116,8 +115,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 if(flg)
                     dataBaseHelper.insertUser(newUser);
 
-
-
                 Cursor allUsersCursor = dataBaseHelper.getAllUsers();
                 LinearLayout ll = findViewById(R.id.LinearLayout);
                 ll.removeAllViews();
@@ -129,7 +126,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                                     + "\nLast Name= " + allUsersCursor.getString(2)
                                     + "\nPassword= " + allUsersCursor.getString(3)
                                     + "\nDest= " + allUsersCursor.getString(4)
-
                                     + "\n\n"
                     );
                     ll.addView(textView11);
@@ -138,7 +134,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 //                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
 //                SignupActivity.this.startActivity(intent);
 //                finish();
-
 
             }
         });
@@ -156,7 +151,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> arg0) {
 
     }
-
+    /** Called when the user touches the button */
+    public void signIn(View view) {
+        // Do something in response to button click
+        Intent intent=new Intent(SignupActivity.this,LoginActivity.class);
+        SignupActivity.this.startActivity(intent);
+    }
 
 
 }

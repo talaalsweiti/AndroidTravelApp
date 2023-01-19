@@ -174,7 +174,9 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"/>
+                android:layout_height="44dp"
+                android:contentDescription="@string/Continents"
+                tools:ignore="TouchTargetSizeCheck" />
         </FrameLayout>
 
         <FrameLayout
@@ -206,8 +208,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_height="48dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -217,17 +218,19 @@
                 android:fontFamily="@font/comfortaalight"
                 android:text="Already have an Account ?"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txtSignIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:clickable="true"
                 android:fontFamily="@font/comfortaabold"
+                android:onClick="signIn"
                 android:text="Sign In"
                 android:textColor="@color/red"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
 
         </LinearLayout>

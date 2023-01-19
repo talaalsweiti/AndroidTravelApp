@@ -40,4 +40,6 @@
     <string name="menu_sorted">Sorted</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_logout">Logout</string>
+    <string name="Continent">Continent</string>
+    <string name="Continents">Continents</string>
 </resources>
