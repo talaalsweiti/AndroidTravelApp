@@ -102,7 +102,7 @@
                 android:visibility="invisible" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSignIn"
+                android:id="@+id/btnLogIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
@@ -111,7 +111,7 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
-                android:text="Sign In"
+                android:text="Log In"
                 app:cornerRadius="10dp" />
 
         </FrameLayout>

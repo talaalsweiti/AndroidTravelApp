@@ -95,9 +95,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 //                        DataBaseHelper(SignupActivity.this,"TRAVEL_GUID",null,1);
 //                dataBaseHelper.insertCustomer(newUser);
 
-//                Intent intent=new Intent(SignupActivity.this,SignupActivity.class);
-//                SignupActivity.this.startActivity(intent);
-//                finish();
+                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
+                SignupActivity.this.startActivity(intent);
+                finish();
 
 
             }
