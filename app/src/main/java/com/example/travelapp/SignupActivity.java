@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
@@ -25,7 +24,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin = (Spinner) findViewById(R.id.spinner);
+        Spinner spin = findViewById(R.id.spinner);
         spin.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the country list
@@ -35,19 +34,19 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
-        Button addCustomerButton = (Button) findViewById(R.id.btnSignUp);
+        Button addCustomerButton = findViewById(R.id.btnSignUp);
 
         final EditText emailEditText =
-                (EditText)findViewById(R.id.edtSignUpEmail);
+                findViewById(R.id.edtSignUpEmail);
         final EditText firstNameEditText =
-                (EditText)findViewById(R.id.edtSignUpFirstName);
+                findViewById(R.id.edtSignUpFirstName);
         final EditText lastNameEditText =
-                (EditText)findViewById(R.id.edtSignUpLastName);
+                findViewById(R.id.edtSignUpLastName);
         final EditText PassEditText =
-                (EditText)findViewById(R.id.edtSignUpPassword);
+                findViewById(R.id.edtSignUpPassword);
 
         final EditText confirmPassEditText =
-                (EditText)findViewById(R.id.edtSignUpConfirmPassword);
+                findViewById(R.id.edtSignUpConfirmPassword);
 
 
         addCustomerButton.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +100,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
 
                 Cursor allUsersCursor = dataBaseHelper.getAllUsers();
-                LinearLayout ll = (LinearLayout) findViewById(R.id.LinearLayout);
+                LinearLayout ll = findViewById(R.id.LinearLayout);
                 ll.removeAllViews();
                 while (allUsersCursor.moveToNext()) {
                     TextView textView11 = new TextView(SignupActivity.this);
@@ -117,9 +116,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     ll.addView(textView11);
                 }
 
-                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
-                SignupActivity.this.startActivity(intent);
-                finish();
+//                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
+//                SignupActivity.this.startActivity(intent);
+//                finish();
 
 
             }
