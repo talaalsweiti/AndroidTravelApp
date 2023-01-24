@@ -42,20 +42,20 @@ public class LoginActivity extends AppCompatActivity {
                     }else {
                         Cursor searchUser = dataBaseHelper.searchUser(emailEditText.getText().toString());
                         if (searchUser.moveToFirst()){
-
+                            CheckBox RememberMe = (CheckBox) findViewById(R.id.checkBox);
                             if (!searchUser.getString(3).matches(passwordEditText.getText().toString())) {
                                 passwordEditText.setError("WRONG PASSWORD");
                                 passwordEditText.requestFocus();
                             } else {
+                                //when successful log in
+                                if(RememberMe.isChecked()){
+                                    sharedPrefManager.writeString("Email",emailEditText.getText().toString());
+                                    Toast.makeText(LoginActivity.this, "Email Address Remembered",
+                                            Toast.LENGTH_SHORT).show();
+                                }
                                 Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                                 LoginActivity.this.startActivity(intent);
                                 finish();
-                            }
-                            CheckBox RememberMe = (CheckBox) findViewById(R.id.checkBox);
-                            if(RememberMe.isChecked()){
-                                sharedPrefManager.writeString("Email",emailEditText.getText().toString());
-                                Toast.makeText(LoginActivity.this, "Email Address Remembered",
-                                        Toast.LENGTH_SHORT).show();
                             }
 
                         } else {

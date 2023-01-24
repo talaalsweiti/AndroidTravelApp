@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -103,7 +106,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 DataBaseHelper dataBaseHelper = new
                         DataBaseHelper(SignupActivity.this, "TRAVEL_APP", null, 1);
                 if (newUser.getEmail() != null && newUser.getPassword() != null && newUser.getFirstName() != null && newUser.getLastName() != null) {
+
                     dataBaseHelper.insertUser(newUser);
+//
+//                    Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
+//                    SignupActivity.this.startActivity(intent);
+//                    finish();
 
                     Cursor allUsersCursor = dataBaseHelper.getAllUsers();
                     LinearLayout ll = findViewById(R.id.LinearLayout);
@@ -126,9 +134,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                             Toast.LENGTH_SHORT).show();
                 }
 
-//                Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
-//                SignupActivity.this.startActivity(intent);
-//                finish();
 
             }
         });

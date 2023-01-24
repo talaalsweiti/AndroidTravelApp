@@ -45,4 +45,5 @@
     <string name="menu_logout">Logout</string>
     <string name="Continent">Continent</string>
     <string name="Continents">Continents</string>
+    <string name="log_out">Log out from the application</string>
 </resources>

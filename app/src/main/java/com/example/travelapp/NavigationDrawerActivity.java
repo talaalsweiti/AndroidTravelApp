@@ -1,19 +1,19 @@
 package com.example.travelapp;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 
-import com.example.travelapp.databinding.ActivityNavigationDrawerBinding;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.travelapp.databinding.ActivityNavigationDrawerBinding;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class NavigationDrawerActivity extends AppCompatActivity {
@@ -44,6 +44,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_all, R.id.nav_favorite,R.id.nav_sorted,R.id.nav_profile,R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer_acvtivity);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
