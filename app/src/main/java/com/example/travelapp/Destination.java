@@ -1,7 +1,5 @@
 package com.example.travelapp;
 
-import android.widget.ImageView;
-
 public class Destination {
     private String city;
     private String country;
@@ -9,20 +7,20 @@ public class Destination {
     private double longitude;
     private double latitude;
     private double cost;
-    private String imgLink;
+    private String img;
     private String description;
 
     public Destination() {
     }
 
-    public Destination(String city, String country, String continent, double longitude, double latitude, double cost, String imgLink, String description) {
+    public Destination(String city, String country, String continent, double longitude, double latitude, double cost, String img, String description) {
         this.city = city;
         this.country = country;
         this.continent = continent;
         this.longitude = longitude;
         this.latitude = latitude;
         this.cost = cost;
-        this.imgLink = imgLink;
+        this.img = img;
         this.description = description;
     }
 
@@ -74,12 +72,12 @@ public class Destination {
         this.cost = cost;
     }
 
-    public String getImgLink() {
-        return imgLink;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgLink(String imgLink) {
-        this.imgLink = imgLink;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getDescription() {
@@ -99,7 +97,7 @@ public class Destination {
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", cost=" + cost +
-                ", imgLink='" + imgLink + '\'' +
+                ", imgLink='" + img + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
