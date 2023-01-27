@@ -5,15 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    -
 
     <ScrollView
-        android:id="@+id/login_signup"
+        android:id="@+id/credit_card_checkout_____checkout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-
-        -
 
         <RelativeLayout
             android:id="@+id/content_container"
@@ -21,352 +18,295 @@
             android:layout_height="wrap_content">
 
 
-            -
-
             <RelativeLayout
-                android:id="@+id/page_login_signup_ek1"
+                android:id="@+id/page_credit_card_checkout_____checkout_ek1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp">
 
                 <View
-                    android:id="@+id/_bg__login_signup_ek2"
-                    android:layout_width="2083.33dp"
-                    android:layout_height="1250dp"
+                    android:id="@+id/_bg__credit_card_checkout_____checkout_ek2"
+                    android:layout_width="390dp"
+                    android:layout_height="844dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:background="@drawable/_bg__login_signup_ek2_shape" />
+                    android:background="@drawable/_bg__credit_card_checkout_____checkout_ek2_shape" />
 
+                <View
+                    android:id="@+id/unsplash_bq7nhy4trga"
+                    android:layout_width="390dp"
+                    android:layout_height="844dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/unsplash_bq7nhy4trga_shape" />
 
-                -
 
                 <RelativeLayout
-                    android:id="@+id/login"
+                    android:id="@+id/group_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="835dp"
-                    android:layout_marginTop="116dp">
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="88dp">
 
-
-                    -
 
                     <RelativeLayout
-                        android:id="@+id/rectangle_2206"
+                        android:id="@+id/master_card_3__simple_purple_"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp">
+                        android:layout_marginTop="130dp">
 
                         <View
-                            android:id="@+id/unsplash_c5dlhukewfm"
-                            android:layout_width="414dp"
-                            android:layout_height="896dp"
+                            android:id="@+id/card_surface"
+                            android:layout_width="342dp"
+                            android:layout_height="190dp"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="0dp"
-                            android:background="@drawable/unsplash_c5dlhukewfm_shape" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/bg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"></RelativeLayout>
-
-
-                    -
-
-                    <RelativeLayout
-                        android:id="@+id/bg_ek1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="425dp">
+                            android:background="@drawable/card_surface_shape" />
 
                         <View
-                            android:id="@+id/rectangle_2207"
-                            android:layout_width="414dp"
-                            android:layout_height="896dp"
+                            android:id="@+id/gousian_layer"
+                            android:layout_width="342dp"
+                            android:layout_height="190dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="1dp"
-                            android:background="@drawable/rectangle_2207_shape" />
+                            android:layout_marginTop="0dp"
+                            android:alpha="0.029999999329448"
+                            android:background="@drawable/gousian_layer_shape" />
 
+                        <ImageView
+                            android:id="@+id/effect"
+                            android:layout_width="288.16dp"
+                            android:layout_height="134.31dp"
+                            android:layout_marginStart="53.34dp"
+                            android:layout_marginTop="55.17dp"
+                            android:contentDescription="effect"
+                            android:src="@drawable/effect" />
 
-                        -
+                        <TextView
+                            android:id="@+id/number"
+                            android:layout_width="254dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="24.52dp"
+                            android:layout_marginTop="83dp"
+                            android:fontFamily="Montserrat"
+                            android:text="@string/number_string"
+                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
 
                         <RelativeLayout
-                            android:id="@+id/h1"
+                            android:id="@+id/group_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="159dp"
-                            android:layout_marginTop="697dp">
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="119dp">
 
                             <TextView
-                                android:id="@+id/login_ek1"
-                                android:layout_width="111dp"
-                                android:layout_height="68dp"
-                                android:layout_gravity="center_horizontal|center"
-                                android:layout_marginLeft="-6dp"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="Lato"
-                                android:gravity="center"
-                                android:text="@string/login_ek1_string"
-                                android:textColor="@color/login_ek1_color"
-                                android:textSize="36sp"
+                                android:id="@+id/put_name_here"
+                                android:layout_width="142dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="Montserrat"
+                                android:text="@string/put_name_here_string"
+                                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/put_name_here_ek1"
+                                android:layout_width="68dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="197dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="Montserrat"
+                                android:text="@string/put_name_here_ek1_string"
+                                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/credit_text"
+                                android:layout_width="82dp"
+                                android:layout_height="33dp"
+                                android:layout_marginLeft="197dp"
+                                android:layout_marginTop="0dp"
+                                android:alpha="0.9"
+                                android:fontFamily="Montserrat"
+                                android:text="@string/credit_text_string"
+                                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/credit_text_ek1"
+                                android:layout_width="55dp"
+                                android:layout_height="33dp"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginTop="0dp"
+                                android:alpha="0.9"
+                                android:fontFamily="Montserrat"
+                                android:text="@string/credit_text_ek1_string"
+                                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                android:textSize="12sp" />
 
                         </RelativeLayout>
 
 
-                        -
-
                         <RelativeLayout
-                            android:id="@+id/frame_3861"
+                            android:id="@+id/logo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:layout_marginTop="389dp">
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="25dp">
 
-
-                            -
-
-                            <RelativeLayout
-                                android:id="@+id/form"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <View
+                                android:id="@+id/ellipse_1"
+                                android:layout_width="30.65dp"
+                                android:layout_height="30.65dp"
                                 android:layout_marginStart="0dp"
-                                android:layout_marginTop="0dp">
+                                android:layout_marginTop="9.13dp"
+                                android:background="@drawable/ellipse_1_shape" />
 
-                                <TextView
-                                    android:id="@+id/email"
-                                    android:layout_width="357dp"
-                                    android:layout_height="32dp"
-                                    android:layout_marginLeft="0dp"
-                                    android:layout_marginTop="0dp"
-                                    android:fontFamily="Lato"
-                                    android:text="@string/email_string"
-                                    android:textColor="@color/_bg__login_signup_ek2_color"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
+                            <View
+                                android:id="@+id/ellipse_2"
+                                android:layout_width="30.65dp"
+                                android:layout_height="30.65dp"
+                                android:layout_marginStart="18.39dp"
+                                android:layout_marginTop="9.13dp"
+                                android:background="@drawable/ellipse_2_shape" />
 
-                                <View
-                                    android:id="@+id/rectangle_103"
-                                    android:layout_width="336dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="0dp"
-                                    android:layout_marginTop="29dp"
-                                    android:background="@drawable/rectangle_103_shape" />
-
-                                <TextView
-                                    android:id="@+id/email_address"
-                                    android:layout_width="281dp"
-                                    android:layout_height="37dp"
-                                    android:layout_marginLeft="20dp"
-                                    android:layout_marginTop="43dp"
-                                    android:fontFamily="Lato"
-                                    android:text="@string/email_address_string"
-                                    android:textColor="@color/email_address_color"
-                                    android:textSize="16sp" />
-
-                            </RelativeLayout>
-
-
-                            -
-
-                            <RelativeLayout
-                                android:id="@+id/form_ek1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="99dp">
-
-                                <TextView
-                                    android:id="@+id/password"
-                                    android:layout_width="357dp"
-                                    android:layout_height="32dp"
-                                    android:layout_marginLeft="0dp"
-                                    android:layout_marginTop="0dp"
-                                    android:fontFamily="Lato"
-                                    android:text="@string/password_string"
-                                    android:textColor="@color/_bg__login_signup_ek2_color"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
-
-                                <View
-                                    android:id="@+id/rectangle_103_ek1"
-                                    android:layout_width="336dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="0dp"
-                                    android:layout_marginTop="29dp"
-                                    android:background="@drawable/rectangle_103_ek1_shape" />
-
-                                <TextView
-                                    android:id="@+id/password_ek1"
-                                    android:layout_width="281dp"
-                                    android:layout_height="37dp"
-                                    android:layout_marginLeft="20dp"
-                                    android:layout_marginTop="43dp"
-                                    android:fontFamily="Lato"
-                                    android:text="@string/password_ek1_string"
-                                    android:textColor="@color/email_address_color"
-                                    android:textSize="16sp" />
-
-
-                                -
-
-                                <RelativeLayout
-                                    android:id="@+id/icon_visibility_off"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="291.87dp"
-                                    android:layout_marginTop="44dp">
-
-                                    <View
-                                        android:id="@+id/rectangle_104"
-                                        android:layout_width="24.07dp"
-                                        android:layout_height="24dp"
-                                        android:layout_marginStart="0dp"
-                                        android:layout_marginTop="0dp"
-                                        android:alpha="0"
-                                        android:background="@drawable/rectangle_104_shape" />
-
-                                    <ImageView
-                                        android:id="@+id/vector"
-                                        android:layout_width="20.06dp"
-                                        android:layout_height="19dp"
-                                        android:layout_marginStart="2.01dp"
-                                        android:layout_marginTop="2dp"
-                                        android:contentDescription="vector"
-                                        android:src="@drawable/vector" />
-
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/forgot_password_"
-                                android:layout_width="128dp"
-                                android:layout_height="31dp"
-                                android:layout_marginLeft="225dp"
-                                android:layout_marginTop="215dp"
-                                android:fontFamily="Lato"
-                                android:text="@string/forgot_password__string"
-                                android:textColor="@color/email_address_color"
-                                android:textSize="14sp" />
-
-
-                            -
-
-                            <RelativeLayout
-                                android:id="@+id/frame_2034"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="214dp">
-
-
-                                -
-
-                                <RelativeLayout
-                                    android:id="@+id/radio_button"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="0dp"
-                                    android:layout_marginTop="0dp">
-
-                                    <View
-                                        android:id="@+id/rectangle_396"
-                                        android:layout_width="42.95dp"
-                                        android:layout_height="24dp"
-                                        android:layout_marginStart="0dp"
-                                        android:layout_marginTop="0dp"
-                                        android:background="@drawable/rectangle_396_shape" />
-
-                                    <View
-                                        android:id="@+id/rectangle_397"
-                                        android:layout_width="18.95dp"
-                                        android:layout_height="18.95dp"
-                                        android:layout_marginStart="2.53dp"
-                                        android:layout_marginTop="2.53dp"
-                                        android:background="@drawable/rectangle_397_shape" />
-
-                                </RelativeLayout>
-
-
-                                -
-
-                                <RelativeLayout
-                                    android:id="@+id/group_1903"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="48.95dp"
-                                    android:layout_marginTop="1.5dp">
-
-                                    <TextView
-                                        android:id="@+id/remember_me"
-                                        android:layout_width="108dp"
-                                        android:layout_height="31dp"
-                                        android:layout_marginLeft="0dp"
-                                        android:layout_marginTop="0dp"
-                                        android:fontFamily="Lato"
-                                        android:text="@string/remember_me_string"
-                                        android:textColor="@color/email_address_color"
-                                        android:textSize="14sp" />
-
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-
-                        </RelativeLayout>
-
-
-                        -
-
-                        <RelativeLayout
-                            android:id="@+id/btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="43dp"
-                            android:layout_marginTop="291dp">
-
-                            <TextView
-                                android:id="@+id/login_ek2"
-                                android:layout_width="67dp"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="146dp"
-                                android:layout_marginTop="14dp"
-                                android:fontFamily="Lato"
-                                android:text="@string/login_ek2_string"
-                                android:textColor="@color/login_ek1_color"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
+                            <ImageView
+                                android:id="@+id/intersect"
+                                android:layout_width="14.15dp"
+                                android:layout_height="24.52dp"
+                                android:layout_marginStart="17.44dp"
+                                android:layout_marginTop="12.2dp"
+                                android:contentDescription="intersect"
+                                android:src="@drawable/intersect" />
 
                         </RelativeLayout>
 
                     </RelativeLayout>
 
                     <TextView
-                        android:id="@+id/don_t_have_an_account__signup"
-                        android:layout_width="236dp"
-                        android:layout_height="37dp"
+                        android:id="@+id/checkout"
+                        android:layout_width="161dp"
+                        android:layout_height="54dp"
                         android:layout_gravity="center_horizontal|center"
-                        android:layout_marginLeft="93dp"
-                        android:layout_marginTop="824dp"
-                        android:fontFamily="Roboto"
+                        android:layout_marginLeft="95dp"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="Montserrat"
                         android:gravity="center"
-                        android:text="@string/don_t_have_an_account__signup_string"
-                        android:textColor="@color/rectangle_103_color"
-                        android:textSize="16sp" />
+                        android:text="@string/checkout_string"
+                        android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
 
-                    <View
-                        android:id="@+id/rectangle"
-                        android:layout_width="135dp"
-                        android:layout_height="5dp"
-                        android:layout_marginStart="139dp"
-                        android:layout_marginTop="884dp"
-                        android:background="@drawable/rectangle_shape" />
+
+                    <RelativeLayout
+                        android:id="@+id/group_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="98dp">
+
+                        <TextView
+                            android:id="@+id/saved_cards"
+                            android:layout_width="105dp"
+                            android:layout_height="27dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="Montserrat"
+                            android:text="@string/saved_cards_string"
+                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                            android:textSize="14sp" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/group_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="219dp"
+                            android:layout_marginTop="0dp">
+
+                            <TextView
+                                android:id="@+id/add_new"
+                                android:layout_width="77dp"
+                                android:layout_height="27dp"
+                                android:layout_gravity="center_vertical|end"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="Montserrat"
+                                android:gravity="end"
+                                android:text="@string/add_new_string"
+                                android:textColor="@color/add_new_color"
+                                android:textSize="14sp" />
+
+
+                            <RelativeLayout
+                                android:id="@+id/plus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp">
+
+                                <ImageView
+                                    android:id="@+id/vector"
+                                    android:layout_width="0dp"
+                                    android:layout_height="14dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginTop="5dp"
+                                    android:contentDescription="vector"
+                                    android:src="@drawable/vector" />
+
+                                <ImageView
+                                    android:id="@+id/vector_ek1"
+                                    android:layout_width="14dp"
+                                    android:layout_height="0dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginTop="12dp"
+                                    android:contentDescription="vector_ek1"
+                                    android:src="@drawable/vector_ek1" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/group_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="73dp"
+                        android:layout_marginTop="606dp">
+
+                        <View
+                            android:id="@+id/rectangle_1"
+                            android:layout_width="196dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:background="@drawable/rectangle_1_shape" />
+
+                        <TextView
+                            android:id="@+id/proceed"
+                            android:layout_width="111dp"
+                            android:layout_height="38dp"
+                            android:layout_gravity="center_horizontal|center"
+                            android:layout_marginLeft="47dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="Montserrat"
+                            android:gravity="center"
+                            android:text="@string/proceed_string"
+                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 

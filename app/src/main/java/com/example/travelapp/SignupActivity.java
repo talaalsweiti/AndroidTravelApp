@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] continent = {"Asia", "Africa", "North America", "South America", "Antarctica", "Europe", "Australia"};
+    String[] continent = {"Asia", "Africa", "North America", "Europe"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +128,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                         );
                         ll.addView(textView11);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(SignupActivity.this, "ERROR SIGN UP",
                             Toast.LENGTH_SHORT).show();
                 }

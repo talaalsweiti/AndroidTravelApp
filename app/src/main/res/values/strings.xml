@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">TravelApp</string>
 
     <string name="ek_img_content">ExportKit Image</string>
@@ -15,9 +16,23 @@
     <string name="txtSignIn"><u>Sign In</u></string>
     <string name="txtSignUp"><u>Sign Up</u></string>
 
+    <string name="number_string">5142 - 8164 - 6526 - 2563</string>
 
+    <string name="put_name_here_string">jenner anne</string>
 
-    -
+    <string name="put_name_here_ek1_string">05/34</string>
+
+    <string name="credit_text_string">Valid Till</string>
+
+    <string name="credit_text_ek1_string">Name</string>
+
+    <string name="checkout_string">Checkout</string>
+
+    <string name="saved_cards_string">Saved Cards</string>
+
+    <string name="add_new_string">Add New</string>
+
+    <string name="proceed_string">Proceed</string>
     <string name="forgot_password__string">
 
 <u>Forgot password?</u>
