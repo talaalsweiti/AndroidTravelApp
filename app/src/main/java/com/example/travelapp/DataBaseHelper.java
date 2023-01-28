@@ -40,4 +40,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM USERS WHERE EMAIL=?", new String[]{email}, null);
     }
+
+
 }

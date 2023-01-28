@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(emailEditText.getText().toString().equals("")) {
                         emailEditText.setError("PLEASE ENTER A VALID EMAIL ADDRESS");
                         emailEditText.requestFocus();
-                    }else {
+                    } else {
                         Cursor searchUser = dataBaseHelper.searchUser(emailEditText.getText().toString());
                         if (searchUser.moveToFirst()){
                             CheckBox RememberMe = (CheckBox) findViewById(R.id.checkBox);
@@ -53,9 +53,16 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "Email Address Remembered",
                                             Toast.LENGTH_SHORT).show();
                                 }
+
+                                // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
+                                String Preferredcontinent = searchUser.getString(4);
                                 Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
+                                intent.putExtra("message_key", Preferredcontinent);
+
                                 LoginActivity.this.startActivity(intent);
                                 finish();
+
+
                             }
 
                         } else {
@@ -65,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         searchUser.close();
                     }
-
                     dataBaseHelper.close();
                 }
         );

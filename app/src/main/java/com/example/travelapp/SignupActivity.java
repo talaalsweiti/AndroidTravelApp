@@ -108,10 +108,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 if (newUser.getEmail() != null && newUser.getPassword() != null && newUser.getFirstName() != null && newUser.getLastName() != null) {
 
                     dataBaseHelper.insertUser(newUser);
-//
-//                    Intent intent=new Intent(SignupActivity.this,NavigationDrawerActivity.class);
-//                    SignupActivity.this.startActivity(intent);
-//                    finish();
 
                     Cursor allUsersCursor = dataBaseHelper.getAllUsers();
                     LinearLayout ll = findViewById(R.id.LinearLayout);

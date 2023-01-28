@@ -1,8 +1,10 @@
 package com.example.travelapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -48,6 +50,12 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer_acvtivity);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        TextView receiver_msg = findViewById(R.id.received_value_id);
+
+        Intent intent = getIntent();
+        String Continent = intent.getStringExtra("message_key");
+        // display the string into textView
+         receiver_msg.setText(Continent);
     }
 
     @Override

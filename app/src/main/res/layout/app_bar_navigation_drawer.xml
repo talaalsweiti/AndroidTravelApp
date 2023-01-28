@@ -18,6 +18,12 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.TravelApp.PopupOverlay" />
 
+        <TextView
+            android:id="@+id/received_value_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_navigation_drawer" />

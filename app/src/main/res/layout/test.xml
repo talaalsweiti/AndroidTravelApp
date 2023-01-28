@@ -191,7 +191,7 @@
                     </RelativeLayout>
 
                     <TextView
-                        android:id="@+id/checkout"
+                        android:id="@+id/textHome"
                         android:layout_width="161dp"
                         android:layout_height="54dp"
                         android:layout_gravity="center_horizontal|center"
@@ -199,7 +199,6 @@
                         android:layout_marginTop="0dp"
                         android:fontFamily="Montserrat"
                         android:gravity="center"
-                        android:text="@string/checkout_string"
                         android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                         android:textSize="28sp"
                         android:textStyle="bold" />
