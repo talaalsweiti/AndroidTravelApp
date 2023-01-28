@@ -2,6 +2,10 @@ package com.example.travelapp;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.TextView;
+
+import com.example.travelapp.ui.sorted.SortedFragment;
 
 import java.util.List;
 
@@ -29,5 +33,8 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
         super.onPostExecute(s);
         List<Destination> destinations =
                 DestinationJasonParser.getObjectFromJason(s);
+
+        ((NavigationDrawerActivity) activity).setDestinations(destinations);
+
     }
 }

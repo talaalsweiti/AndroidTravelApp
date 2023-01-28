@@ -14,18 +14,25 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.travelapp.databinding.ActivityNavigationDrawerBinding;
+import com.example.travelapp.ui.sorted.SortedFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 
 public class NavigationDrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationDrawerBinding binding;
+    public List<Destination> destinations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(NavigationDrawerActivity.this);
+        connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
 
         binding = ActivityNavigationDrawerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -71,4 +78,9 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void setDestinations (List<Destination> destinations) {
+        this.destinations = destinations;
+    }
+
 }
