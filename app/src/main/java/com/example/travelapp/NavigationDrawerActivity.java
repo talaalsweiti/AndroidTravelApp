@@ -1,5 +1,6 @@
 package com.example.travelapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,11 +26,15 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationDrawerBinding binding;
+    public String Continent;
     public List<Destination> destinations;
-
+    Activity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // GET THE USER'S PREFERRED CONTINENT
+        Intent intent = getIntent();
+        Continent = intent.getStringExtra("message_key");
 
         ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(NavigationDrawerActivity.this);
         connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
@@ -57,12 +62,8 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer_acvtivity);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        TextView receiver_msg = findViewById(R.id.received_value_id);
 
-        Intent intent = getIntent();
-        String Continent = intent.getStringExtra("message_key");
-        // display the string into textView
-         receiver_msg.setText(Continent);
+
     }
 
     @Override
@@ -78,9 +79,9 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
     public void setDestinations (List<Destination> destinations) {
         this.destinations = destinations;
     }
+
 
 }

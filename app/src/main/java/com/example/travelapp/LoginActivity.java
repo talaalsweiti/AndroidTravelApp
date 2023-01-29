@@ -14,8 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
+    public List<Destination> destinations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedPrefManager = SharedPrefManager.getInstance(this);
         emailEditText.setText(sharedPrefManager.readString("Email","noValue"));
+
 
         btnLogIn.setOnClickListener(
                 view -> {
@@ -55,20 +59,19 @@ public class LoginActivity extends AppCompatActivity {
                                 }
 
                                 // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
+
+
                                 String Preferredcontinent = searchUser.getString(4);
                                 Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                                 intent.putExtra("message_key", Preferredcontinent);
 
                                 LoginActivity.this.startActivity(intent);
                                 finish();
-
-
                             }
 
                         } else {
                             emailEditText.setError("PLEASE ENTER A VALID EMAIL ADDRESS");
                             emailEditText.requestFocus();
-
                         }
                         searchUser.close();
                     }
@@ -85,5 +88,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         LoginActivity.this.startActivity(intent);
     }
+
 
 }

@@ -34,11 +34,12 @@ public class SortedFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         SortedViewModel sortedViewModel =
                 new ViewModelProvider(this).get(SortedViewModel.class);
-        thisContext = container.getContext();
 
+        thisContext = container.getContext();
 
         binding = FragmentSortedBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         linearLayout = binding.LinearLayout;
         navigationDrawerActivity =(NavigationDrawerActivity) getActivity();
         sortDestination();
@@ -60,7 +61,6 @@ public class SortedFragment extends Fragment {
             TextView textView = new TextView(thisContext);
             textView.setText(destinations.get(i).getCity() + " " + destinations.get(i).getCost());
             linearLayout.addView(textView);
-
 
         }
 

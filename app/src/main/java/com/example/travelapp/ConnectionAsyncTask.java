@@ -5,6 +5,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
+import com.example.travelapp.ui.home.HomeFragment;
 import com.example.travelapp.ui.sorted.SortedFragment;
 
 import java.util.List;
@@ -12,9 +15,11 @@ import java.util.List;
 public class ConnectionAsyncTask extends AsyncTask<String, String,
         String> {
     Activity activity;
+    Fragment fragment;
 
     public ConnectionAsyncTask(Activity activity) {
         this.activity = activity;
+
     }
 
     @Override
@@ -33,7 +38,6 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
         super.onPostExecute(s);
         List<Destination> destinations =
                 DestinationJasonParser.getObjectFromJason(s);
-
         ((NavigationDrawerActivity) activity).setDestinations(destinations);
 
     }
