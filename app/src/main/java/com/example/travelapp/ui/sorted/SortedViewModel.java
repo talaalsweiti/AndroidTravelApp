@@ -1,18 +1,17 @@
 package com.example.travelapp.ui.sorted;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SortedViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+public class SortedViewModel extends ViewModel  {
 
-    public SortedViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is sorted fragment");
+    private MutableLiveData<Integer> selectedOption = new MutableLiveData<>();
+
+    public MutableLiveData<Integer> getSelectedOption() {
+        return selectedOption;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void setSelectedOption(Integer selectedOption) {
+        this.selectedOption.setValue(selectedOption);
     }
 }
