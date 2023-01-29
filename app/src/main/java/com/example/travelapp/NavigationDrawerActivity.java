@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -34,10 +39,11 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         // GET THE USER'S PREFERRED CONTINENT
         Intent intent = getIntent();
         Continent = intent.getStringExtra("message_key");
-
 
         binding = ActivityNavigationDrawerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -46,17 +52,22 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(menuItem -> {
+            Intent intent2 = new Intent(NavigationDrawerActivity.this, LoginActivity.class);
+            NavigationDrawerActivity.this.startActivity(intent2);
+            return true;
+        });
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_all, R.id.nav_favorite, R.id.nav_sorted, R.id.nav_profile, R.id.nav_logout)
+                R.id.nav_home, R.id.nav_all, R.id.nav_favorite, R.id.nav_sorted, R.id.nav_profile)
                 .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer_acvtivity);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
 
     }
 
@@ -80,4 +91,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public Cursor sortedFragment(String sortMethod){
         return dataBaseHelper.sortDestinations(sortMethod);
     }
+
+
 }
