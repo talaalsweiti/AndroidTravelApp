@@ -146,6 +146,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="25dp"
                             android:layout_marginTop="10dp"
+                            android:gravity="center"
                             android:textAlignment="center">
 
                             <TextView
@@ -161,7 +162,7 @@
                             <TextView
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:text="City"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
@@ -191,7 +192,7 @@
                                 android:id="@+id/t12"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -221,7 +222,7 @@
                                 android:id="@+id/t22"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -284,7 +285,7 @@
                             <TextView
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:text="City"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
@@ -301,6 +302,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/tt11"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -310,9 +312,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tt12"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -329,6 +332,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/tt21"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -338,9 +342,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tt22"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -433,7 +438,7 @@
                             <TextView
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:text="City"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
@@ -450,6 +455,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/ttt11"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -459,9 +465,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/ttt12"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -478,6 +485,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/ttt21"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -487,9 +495,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/ttt22"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -585,7 +594,7 @@
                             <TextView
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:text="City"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
@@ -602,6 +611,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/tttt11"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -611,9 +621,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tttt12"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"
@@ -630,6 +641,7 @@
                             android:textAlignment="center">
 
                             <TextView
+                                android:id="@+id/tttt21"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="0dp"
@@ -639,9 +651,10 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tttt22"
                                 android:layout_width="142dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="200dp"
+                                android:layout_marginLeft="170dp"
                                 android:layout_marginTop="0dp"
                                 android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                                 android:textSize="24sp"

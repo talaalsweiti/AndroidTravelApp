@@ -1,6 +1,7 @@
 package com.example.travelapp.ui.sorted;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,15 +32,15 @@ public class SortedFragment extends Fragment {
     List<Destination> destinations;
     NavigationDrawerActivity navigationDrawerActivity;
 
-    SortedViewModel sortedViewModel ;
+    SortedViewModel sortedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-         sortedViewModel =
+        sortedViewModel =
                 new ViewModelProvider(this).get(SortedViewModel.class);
 
         thisContext = container.getContext();
-        navigationDrawerActivity =(NavigationDrawerActivity) getActivity();
+        navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sorted, container, false);
 
         return binding.getRoot();
@@ -50,12 +51,12 @@ public class SortedFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         sortedViewModel = new ViewModelProvider(this).get(SortedViewModel.class);
-
         binding.setLifecycleOwner(this);
         linearLayout = binding.LinearLayout;
         sortDestination("asc");
@@ -74,19 +75,14 @@ public class SortedFragment extends Fragment {
     }
 
 
-    public void sortDestination(String sortMethod){
-        destinations = navigationDrawerActivity.destinations ;
+    public void sortDestination(String sortMethod) {
+        navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
+        Cursor sortedDes = navigationDrawerActivity.sortedFragment(sortMethod);
+
         linearLayout.removeAllViews();
-        if(sortMethod=="asc"){
-            destinations.sort(Comparator.comparingDouble(Destination::getCost));
-        }else {
-
-            destinations.sort((o1, o2) -> Double.compare(o2.getCost(), o1.getCost()));
-
-        }
-        for (int i = 0; i < destinations.size(); i++) {
+        while (sortedDes.moveToNext()) {
             TextView textView = new TextView(thisContext);
-            textView.setText(destinations.get(i).getCity() + " " + destinations.get(i).getCost());
+            textView.setText(sortedDes.getString(0) + " " + sortedDes.getString(1));
             linearLayout.addView(textView);
         }
     }

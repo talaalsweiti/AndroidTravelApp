@@ -59,8 +59,8 @@ public class HomeFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     public void displayRandom() {
-        System.err.println("ENTERED");
-        System.err.println(navigationDrawerActivity.destinations.get(0));
+    //    System.err.println("ENTERED");
+    //    System.err.println(navigationDrawerActivity.destinations.get(0));
 
     }
 

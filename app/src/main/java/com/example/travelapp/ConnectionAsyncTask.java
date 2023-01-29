@@ -17,6 +17,7 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
     Activity activity;
     Fragment fragment;
 
+
     public ConnectionAsyncTask(Activity activity) {
         this.activity = activity;
 
@@ -35,10 +36,11 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
 
     @Override
     protected void onPostExecute(String s) {
+
         super.onPostExecute(s);
         List<Destination> destinations =
                 DestinationJasonParser.getObjectFromJason(s);
-        ((NavigationDrawerActivity) activity).setDestinations(destinations);
+        ((LoginActivity) activity).addDestinations(destinations);
 
     }
 }
