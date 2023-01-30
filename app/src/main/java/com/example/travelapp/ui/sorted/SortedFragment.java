@@ -54,7 +54,7 @@ public class SortedFragment extends Fragment {
 
         sortedViewModel = new ViewModelProvider(this).get(SortedViewModel.class);
         binding.setLifecycleOwner(this);
-        linearLayout = binding.LinearLayout;
+
         sortDestination("asc");
         binding.imageView.setVisibility(View.INVISIBLE);
 
@@ -83,13 +83,51 @@ public class SortedFragment extends Fragment {
     public void sortDestination(String sortMethod) {
         navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
         Cursor sortedDes = navigationDrawerActivity.sortedFragment(sortMethod);
+       int i =1;
 
-        linearLayout.removeAllViews();
         while (sortedDes.moveToNext()) {
-            TextView textView = new TextView(thisContext);
-            textView.setText(sortedDes.getString(0) + " " + sortedDes.getString(1));
-            linearLayout.addView(textView);
+//            TextView textView = new TextView(thisContext);
+//            textView.setText(sortedDes.getString(0) + " " + sortedDes.getString(1));
+            if(i==1) {
+                binding.city1.setText(sortedDes.getString(0));
+                binding.cost1.setText(sortedDes.getString(1));
+            }else if(i==2){
+                binding.city2.setText(sortedDes.getString(0));
+                binding.cost2.setText(sortedDes.getString(1));
+            }else if(i==3){
+                binding.city3.setText(sortedDes.getString(0));
+                binding.cost3.setText(sortedDes.getString(1));
+            }else if(i==4){
+                binding.city4.setText(sortedDes.getString(0));
+                binding.cost4.setText(sortedDes.getString(1));
+            }else if(i==5){
+                binding.city5.setText(sortedDes.getString(0));
+                binding.cost5.setText(sortedDes.getString(1));
+            }else if(i==6){
+                binding.city6.setText(sortedDes.getString(0));
+
+                binding.cost6.setText(sortedDes.getString(1));
+            }else if(i==7){
+                binding.city7.setText(sortedDes.getString(0));
+                binding.cost7.setText(sortedDes.getString(1));
+            }else if(i==8){
+                binding.city8.setText(sortedDes.getString(0));
+                binding.cost8.setText(sortedDes.getString(1));
+            }
+
+
+            i++;
         }
+
+
+
+
+
+
+
+
+
+
     }
 
 }
