@@ -15,6 +15,7 @@
     <string name="password_ek1_string">Password</string>
     <string name="txtSignIn"><u>Sign In</u></string>
     <string name="txtSignUp"><u>Sign Up</u></string>
+    <string name="txtAddFav"><u>Add to Favorites</u></string>
 
     <string name="number_string">5142 - 8164 - 6526 - 2563</string>
 
@@ -43,7 +44,7 @@
 
     <string name="login_ek2_string">Login</string>
 
-    <string name="don_t_have_an_account__signup_string">Dont have an account? Signup</string>
+    <string name="don_t_have_an_account__signup_string">Don't have an account? Signup</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -85,6 +85,9 @@
             app:helperTextTextColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             app:hintTextColor="#FFFFFF"
             app:passwordToggleEnabled="true"
+            android:inputType="textPassword"
+            app:endIconMode="password_toggle"
+
             app:placeholderTextColor="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -114,7 +117,9 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                 android:textColorHint="#FFFFFF"
-                android:textSize="16sp" />
+                android:textColorLink="@color/add_new_color"
+                android:textSize="16sp"
+                app:buttonTint="@color/_bg__credit_card_checkout_____checkout_ek2_color" />
 
         </LinearLayout>
 

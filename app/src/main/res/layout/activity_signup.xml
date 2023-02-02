@@ -2,41 +2,25 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
+    android:layout_height="760dp"
+    android:layout_marginTop="-12dp"
+    android:background="@drawable/card_surface_shape"
     android:scrollbars="none"
+
     tools:context=".SignupActivity">
 
     <LinearLayout
         android:id="@+id/LinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="22dp"
+        android:gravity="center"
         android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -45,7 +29,7 @@
             android:fontFamily="@font/gvtime"
             android:text="Sign Up"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             android:textSize="50sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -54,8 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Email"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+            app:boxStrokeColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+            app:hintTextColor="@color/_bg__credit_card_checkout_____checkout_ek2_color">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpEmail"
@@ -64,7 +49,9 @@
                 android:fontFamily="@font/comfortaabold"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                android:textColorLink="@color/_bg__credit_card_checkout_____checkout_ek2_color" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,8 +66,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="32dp"
                 android:hint="First Name"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                app:boxStrokeColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                app:hintTextColor="@color/_bg__credit_card_checkout_____checkout_ek2_color">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpFirstName"
                     android:layout_width="179dp"
@@ -88,7 +77,8 @@
                     android:fontFamily="@font/comfortaabold"
                     android:inputType="text"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                    android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -98,8 +88,9 @@
                 android:layout_marginTop="32dp"
                 android:hint="Last Name"
 
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/_bg__credit_card_checkout_____checkout_ek2_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpLastName"
@@ -109,7 +100,8 @@
                     android:inputType="text"
                     android:singleLine="true"
 
-                    android:textColor="@color/black" />
+                    android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                    android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,8 +120,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             app:boxStrokeColor="@color/black"
+            app:hintTextColor="#FFFFFF"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -137,10 +130,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comfortaabold"
-                android:singleLine="true"
-                app:endIconMode="password_toggle"
                 android:inputType="textPassword"
-                android:textColor="@color/black" />
+                android:singleLine="true"
+                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                app:endIconMode="password_toggle" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,8 +144,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Confirm Password"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -159,10 +154,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comfortaabold"
-                app:endIconMode="password_toggle"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                app:endIconMode="password_toggle" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,6 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:contentDescription="@string/Continents"
+                android:textAlignment="center"
                 tools:ignore="TouchTargetSizeCheck" />
         </FrameLayout>
 
@@ -195,13 +191,14 @@
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/add_new_color"
                 android:fontFamily="@font/comfortaabold"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
                 android:text="Sign Up"
+                android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                 app:cornerRadius="10dp" />
 
         </FrameLayout>
@@ -217,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comfortaalight"
                 android:text="Already have an Account ?"
-                android:textColor="@color/black"
+                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                 android:textSize="20sp" />
 
             <TextView
@@ -229,8 +226,8 @@
                 android:fontFamily="@font/comfortaabold"
                 android:onClick="signIn"
                 android:text="@string/txtSignIn"
-                android:textColor="@color/purple_200"
-                android:textSize="16sp" />
+                android:textColor="@color/add_new_color"
+                android:textSize="20sp" />
 
 
         </LinearLayout>

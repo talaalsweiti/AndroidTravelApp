@@ -86,10 +86,19 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     }
 
     public Cursor allFragment() {
-        return dataBaseHelper.getAllDestinations();
+        return dataBaseHelper.selectDestinations();
     }
-    public Cursor sortedFragment(String sortMethod){
+
+    public Cursor sortedFragment(String sortMethod) {
         return dataBaseHelper.sortDestinations(sortMethod);
+    }
+
+    public Cursor homeFragment() {
+        return dataBaseHelper.getRandomDestination(Continent);
+    }
+
+    public Cursor numberOfDestinations() {
+        return dataBaseHelper.numberOfDestinations(Continent);
     }
 
 

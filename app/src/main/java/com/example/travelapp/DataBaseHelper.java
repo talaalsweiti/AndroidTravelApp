@@ -62,10 +62,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insertWithOnConflict("DESTINATIONS", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
 
     }
+    public Cursor getRandomDestination(String continent) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CONTINENT=?", new String[]{continent}, null);
+    }
 
-    public Cursor getAllDestinations() {
+    public Cursor selectDestinations() {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT CONTINENT,COUNTRY,CITY FROM DESTINATIONS ", null);
+    }
+    public Cursor numberOfDestinations(String continent) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CONTINENT=?", new String[]{continent}, null);
     }
     public Cursor sortDestinations(String sortMethod){
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();

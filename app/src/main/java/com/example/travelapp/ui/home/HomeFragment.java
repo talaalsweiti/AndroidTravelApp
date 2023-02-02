@@ -2,6 +2,7 @@ package com.example.travelapp.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -19,21 +20,19 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.travelapp.ConnectionAsyncTask;
 import com.example.travelapp.Destination;
+import com.example.travelapp.LoginActivity;
 import com.example.travelapp.NavigationDrawerActivity;
 import com.example.travelapp.R;
 import com.example.travelapp.databinding.FragmentHomeBinding;
 
 import java.util.List;
+import java.util.Random;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    String Continent;
-    ScrollView sv;
     Context thisContext;
     NavigationDrawerActivity navigationDrawerActivity;
-    List<Destination> destinations;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,10 +43,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        ScrollView sc  = binding.scrollView;
-        navigationDrawerActivity =(NavigationDrawerActivity) getActivity();
-    //    displayRandom();
+        displayRandom();
         return root;
     }
 
@@ -59,9 +55,21 @@ public class HomeFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     public void displayRandom() {
-    //    System.err.println("ENTERED");
-    //    System.err.println(navigationDrawerActivity.destinations.get(0));
+        int count = 0;
+        navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
+        Cursor displayRandom = navigationDrawerActivity.homeFragment();
+        Cursor numberOfDestinations = navigationDrawerActivity.numberOfDestinations();
 
+        while (numberOfDestinations.moveToNext())
+            count +=1;
+
+        // GET THE UPPER BOUND OF THE RANDOM INDEX OF THE SELECTED PREFERRED CONTINENT
+        Random rand = new Random();
+        int int_random = rand.nextInt(count);
+        displayRandom.moveToPosition(int_random);
+
+            System.err.println(displayRandom.getString(0) +
+                    displayRandom.getString(1) + displayRandom.getString(2) + displayRandom.getString(3) + displayRandom.getString(4) + displayRandom.getString(5) + displayRandom.getString(6) + displayRandom.getString(7));
     }
 
 }
