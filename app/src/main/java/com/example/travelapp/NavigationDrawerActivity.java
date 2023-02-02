@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -99,6 +100,14 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
     public Cursor numberOfDestinations() {
         return dataBaseHelper.numberOfDestinations(Continent);
+    }
+    /**
+     * Called when the user touches the button
+     */
+    public void addFav(View view) {
+        // Do something in response to button click
+        Toast.makeText(NavigationDrawerActivity.this, "DESTINATION ADDED TO FAVORITES SUCCESSFULLY",Toast.LENGTH_SHORT).show();
+
     }
 
 

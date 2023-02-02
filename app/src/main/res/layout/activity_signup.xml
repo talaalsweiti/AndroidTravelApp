@@ -170,7 +170,9 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
+                android:backgroundTint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
                 android:contentDescription="@string/Continents"
+                android:dropDownSelector="@drawable/card_surface_shape"
                 android:textAlignment="center"
                 tools:ignore="TouchTargetSizeCheck" />
         </FrameLayout>

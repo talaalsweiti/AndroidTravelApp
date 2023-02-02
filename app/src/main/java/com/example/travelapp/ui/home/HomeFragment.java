@@ -2,6 +2,7 @@ package com.example.travelapp.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +26,7 @@ import com.example.travelapp.Destination;
 import com.example.travelapp.LoginActivity;
 import com.example.travelapp.NavigationDrawerActivity;
 import com.example.travelapp.R;
+import com.example.travelapp.SignupActivity;
 import com.example.travelapp.databinding.FragmentHomeBinding;
 
 import java.util.List;
@@ -55,6 +59,13 @@ public class HomeFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     public void displayRandom() {
+        TextView cityText = binding.city;
+        TextView countryText = binding.country;
+        TextView continentText = binding.continent;
+        TextView costText = binding.cost;
+        TextView descText = binding.desc;
+
+
         int count = 0;
         navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
         Cursor displayRandom = navigationDrawerActivity.homeFragment();
@@ -67,9 +78,13 @@ public class HomeFragment extends Fragment {
         Random rand = new Random();
         int int_random = rand.nextInt(count);
         displayRandom.moveToPosition(int_random);
-
-            System.err.println(displayRandom.getString(0) +
-                    displayRandom.getString(1) + displayRandom.getString(2) + displayRandom.getString(3) + displayRandom.getString(4) + displayRandom.getString(5) + displayRandom.getString(6) + displayRandom.getString(7));
+        cityText.setText(displayRandom.getString(0));
+        countryText.setText(displayRandom.getString(1));
+        continentText.setText(displayRandom.getString(2));
+        costText.setText(displayRandom.getString(5) + "$");
+        descText.setText( displayRandom.getString(7));
     }
+
+
 
 }
