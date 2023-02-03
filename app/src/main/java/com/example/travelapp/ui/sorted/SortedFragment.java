@@ -86,8 +86,6 @@ public class SortedFragment extends Fragment {
        int i =1;
 
         while (sortedDes.moveToNext()) {
-//            TextView textView = new TextView(thisContext);
-//            textView.setText(sortedDes.getString(0) + " " + sortedDes.getString(1));
             if(i==1) {
                 binding.city1.setText(sortedDes.getString(0));
                 binding.cost1.setText(sortedDes.getString(1));

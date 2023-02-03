@@ -3,361 +3,498 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.sorted.SortedFragment"
-    android:orientation="vertical"
-    >
-
-        <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        android:text="Sort by"
-      />
-
-    <RadioGroup
-        android:layout_gravity="top|center"
-        android:id="@+id/radiogroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/ascending"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-android:checked="true"
-            android:text="Ascending" />
-
-        <RadioButton
-            android:id="@+id/descending"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descending" />
-    </RadioGroup>
-
-    <RelativeLayout
-        android:id="@+id/Layout1"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center" >
-
-        <View
-            android:layout_width="342dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/card_surface_shape" />
-
-        <View
-            android:layout_width="342dp"
-            android:layout_height="400dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:alpha="0.029999999329448"
-            android:background="@drawable/gousian_layer_shape" />
-
-        <ImageView
-            android:layout_width="288.16dp"
-            android:layout_height="134.31dp"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="300dp"
-            android:contentDescription="effect"
-            android:src="@drawable/effect" />
 
 
-        <RelativeLayout
-            android:id="@+id/r11"
+
+    <HorizontalScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="790dp"
+        tools:context=".ui.sorted.SortedFragment">
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textAlignment="center">
-
-            <TextView
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:text="City"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:text="Cost"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/city1_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="40dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city1"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost1"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/city2_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="70dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city2"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost2"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/city3_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="100dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city3"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost3"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/city4_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="130dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city4"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost4"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/city5_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="160dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city5"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost5"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/city6_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="190dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city6"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost6"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+            >
 
 
-
-        <RelativeLayout
-            android:id="@+id/city7_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="220dp"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/city7"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cost7"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/content_container"
+                android:layout_width="wrap_content"
+                android:layout_height="800dp">
 
 
+                <RelativeLayout
+                    android:id="@+id/page_credit_card_checkout_____checkout_ek1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp">
 
 
-        <RelativeLayout
-            android:id="@+id/city8_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="250dp"
-            android:textAlignment="center">
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/card_surface_shape" />
 
-            <TextView
-                android:id="@+id/city8"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="433dp"
+                        android:layout_height="800dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="-12dp"
+                        android:background="@drawable/card_surface_shape" />
 
-            <TextView
-                android:id="@+id/cost8"
-                android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="0dp"
-                android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="top|center"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_baseline_attach_money_24">
-
-        </ImageView>
+                    <RelativeLayout
+                        android:id="@+id/group_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="37dp">
 
 
-    </FrameLayout>
+                        <TextView
+                            android:layout_width="161dp"
+                            android:layout_height="54dp"
+                            android:layout_centerInParent="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal|center"
+                            android:layout_marginLeft="95dp"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center"
+                            android:text="Destinations"
+                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/card"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="135dp"
+                            android:foregroundGravity="center|center_horizontal"
+                            android:gravity="center|center_horizontal">
+
+                            <View
+                                android:id="@+id/card_surface"
+                                android:layout_width="400dp"
+                                android:layout_height="440dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:background="@drawable/card_surface_shape"
+                                android:foregroundGravity="center_horizontal" />
+
+                            <View
+                                android:id="@+id/gousian_layer"
+                                android:layout_width="400dp"
+                                android:layout_height="440dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:alpha="0.029999999329448"
+                                android:background="@drawable/gousian_layer_shape"
+                                android:foregroundGravity="center|center_horizontal" />
+
+                            <ImageView
+                                android:id="@+id/effect"
+                                android:layout_width="288.16dp"
+                                android:layout_height="134.31dp"
+                                android:layout_marginStart="220.34dp"
+                                android:layout_marginTop="460.17dp"
+                                android:contentDescription="effect"
+                                android:src="@drawable/effect" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginTop="26dp"
+                                    android:layout_marginRight="24.52dp"
+                                    android:text="City"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                    android:textSize="27sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginTop="26dp"
+                                    android:text="Cost"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                    android:textSize="27sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <ScrollView
+                                android:id="@+id/scrollView12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="72dp"
+                                android:nestedScrollingEnabled="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/city8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="24.52dp"
+                                            android:layout_weight="1"
+                                            android:clickable="true"
+                                            android:textAlignment="textEnd"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/cost8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_weight="1"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </ScrollView>
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/group_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="90dp">
+
+                            <RelativeLayout
+                                android:id="@+id/group_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:gravity="left">
+
+
+                                <RadioGroup
+                                    android:id="@+id/radiogroup"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:orientation="horizontal"
+                                    android:paddingHorizontal="5dp">
+
+                                    <RadioButton
+                                        android:id="@+id/ascending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:button="@android:drawable/arrow_up_float"
+                                        android:buttonTint="@color/add_new_color"
+                                        android:fontFamily="@font/comfortaabold"
+                                        android:gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="10dp"
+                                        android:text="Low to High"
+                                        android:textColor="@color/add_new_color"
+                                        android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                        android:textColorLink="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                        android:textSize="16sp"
+                                        app:useMaterialThemeColors="true" />
+
+                                    <RadioButton
+                                        android:id="@+id/descending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:button="@android:drawable/arrow_down_float"
+                                        android:buttonTint="@color/add_new_color"
+                                        android:fontFamily="@font/comfortaabold"
+                                        android:gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="10dp"
+                                        android:text="High to Low"
+                                        android:textColor="@color/add_new_color"
+                                        android:textColorHint="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                        android:textColorLink="@color/_bg__credit_card_checkout_____checkout_ek2_color"
+                                        android:textSize="16sp"
+                                        app:useMaterialThemeColors="true" />
+
+                                </RadioGroup>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="top|center"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_baseline_attach_money_24"
+                            android:visibility="invisible">
+
+                        </ImageView>
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </HorizontalScrollView>
+
+
 </layout>
