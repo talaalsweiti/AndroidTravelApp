@@ -1,13 +1,12 @@
 package com.example.travelapp.ui.all;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -15,14 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.travelapp.Destination;
+import com.example.travelapp.DestinationActivity;
 import com.example.travelapp.NavigationDrawerActivity;
-import com.example.travelapp.R;
 import com.example.travelapp.databinding.FragmentAllBinding;
-
-import org.w3c.dom.Text;
-
-import java.util.List;
 
 
 public class AllFragment extends Fragment {
@@ -31,13 +25,14 @@ public class AllFragment extends Fragment {
     NavigationDrawerActivity navigationDrawerActivity;
     ScrollView sv;
     Context thisContext;
+    Intent destinationIntent;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         AllViewModel allViewModel =
                 new ViewModelProvider(this).get(AllViewModel.class);
         thisContext = container.getContext();
-
+        destinationIntent = new Intent(thisContext, DestinationActivity.class);
         binding = FragmentAllBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
@@ -108,6 +103,46 @@ public class AllFragment extends Fragment {
                 tttt22.setText(data.getString(2));
             }
         }
+
+        t12.setOnClickListener(view -> {
+            DestinationActivity.city = (String) t12.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+        tt12.setOnClickListener(view -> {
+            DestinationActivity.city = (String) tt12.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+        ttt12.setOnClickListener(view->{
+            DestinationActivity.city = (String) ttt12.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+        tttt12.setOnClickListener(view->{
+            DestinationActivity.city = (String) tttt12.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+        t22.setOnClickListener(view->{
+            DestinationActivity.city = (String) t22.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+        ttt22.setOnClickListener(view->{
+            DestinationActivity.city = (String) ttt22.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+        tttt22.setOnClickListener(view->{
+            DestinationActivity.city = (String)tttt22.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+        tt22.setOnClickListener(view -> {
+            DestinationActivity.city = (String)   tt22.getText();
+            AllFragment.this.startActivity(destinationIntent);
+        });
+
+
 
     }
 }
