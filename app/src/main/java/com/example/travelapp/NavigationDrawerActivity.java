@@ -110,5 +110,4 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
     }
 
-
 }

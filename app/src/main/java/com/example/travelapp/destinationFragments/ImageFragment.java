@@ -1,14 +1,25 @@
 package com.example.travelapp.destinationFragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.travelapp.R;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +37,7 @@ public class ImageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public static String link;
     public ImageFragment() {
         // Required empty public constructor
     }
@@ -62,5 +74,17 @@ public class ImageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_image, container, false);
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ImageView imageView = getView().findViewById(R.id.image);
+        Picasso.get()
+                .load(link)
+                .into(imageView);
+
+
+
+
     }
 }

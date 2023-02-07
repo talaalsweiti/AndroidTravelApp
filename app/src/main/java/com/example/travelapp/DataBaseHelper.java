@@ -83,4 +83,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
          else
             return sqLiteDatabase.rawQuery("SELECT CITY,COST FROM DESTINATIONS ORDER BY COST DESC", null);
     }
+
+    public Cursor selectOneDestination(String city) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT DESCRIPTION,IMG,LONGITUDE,LATITUDE FROM DESTINATIONS WHERE CITY=?", new String[]{city}, null);
+    }
 }
