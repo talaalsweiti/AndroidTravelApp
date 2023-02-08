@@ -2,13 +2,8 @@ package com.example.travelapp;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-
-import com.example.travelapp.ui.home.HomeFragment;
-import com.example.travelapp.ui.sorted.SortedFragment;
 
 import java.util.List;
 

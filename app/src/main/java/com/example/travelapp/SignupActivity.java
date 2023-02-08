@@ -1,7 +1,5 @@
 package com.example.travelapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,9 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

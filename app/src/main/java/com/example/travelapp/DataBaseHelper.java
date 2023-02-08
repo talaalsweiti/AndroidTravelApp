@@ -86,6 +86,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor selectOneDestination(String city) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT DESCRIPTION,IMG,LONGITUDE,LATITUDE FROM DESTINATIONS WHERE CITY=?", new String[]{city}, null);
+        return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CITY=?", new String[]{city}, null);
     }
 }

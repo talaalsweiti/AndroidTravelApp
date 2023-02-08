@@ -2,34 +2,20 @@ package com.example.travelapp.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.travelapp.ConnectionAsyncTask;
-import com.example.travelapp.Destination;
-import com.example.travelapp.LoginActivity;
 import com.example.travelapp.NavigationDrawerActivity;
-import com.example.travelapp.R;
-import com.example.travelapp.SignupActivity;
 import com.example.travelapp.databinding.FragmentHomeBinding;
 
-import java.util.List;
 import java.util.Random;
 
 public class HomeFragment extends Fragment {

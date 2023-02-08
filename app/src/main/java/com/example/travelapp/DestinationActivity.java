@@ -33,15 +33,27 @@ public class DestinationActivity extends AppCompatActivity {
         TextView cityText = findViewById(R.id.city);
         cityText.setText(city);
 
-        Cursor information = dataBaseHelper.selectOneDestination(city);
+        Cursor selectedCity = dataBaseHelper.selectOneDestination(city);
 
-        while(information.moveToNext()) {
-            desc = information.getString(0);
-            imgLink = information.getString(1);
-            longitude=information.getDouble(2);
-            latitude=information.getDouble(3);
+
+        while(selectedCity.moveToNext()) {
+            desc = selectedCity.getString(7);
+            imgLink = selectedCity.getString(6);
+            longitude=selectedCity.getDouble(3);
+            latitude=selectedCity.getDouble(4);
 
         }
+
+
+        TextView fav = findViewById(R.id.addFav);
+
+        fav.setOnClickListener(view->{
+            /*
+            add the selectedCity to the database
+
+             */
+        });
+
         description.setOnClickListener(view -> {
             displayDescriptionFragment();
         });
