@@ -70,7 +70,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     newUser.setEmail(emailEditText.getText().toString());
                 }
 
-                if (firstNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
+                if (firstNameEditText.getText().toString().isEmpty() || firstNameEditText.getText().toString().length() > 20 || firstNameEditText.getText().toString().length() < 3) {
                     firstNameEditText.setError("PLEASE ENTER A VALID FIRST NAME");
                     firstNameEditText.requestFocus();
 
@@ -79,7 +79,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
                 }
 
-                if (lastNameEditText.getText().toString().isEmpty() || PassEditText.getText().toString().length() > 20 || PassEditText.getText().toString().length() < 3) {
+                if (lastNameEditText.getText().toString().isEmpty() || lastNameEditText.getText().toString().length() > 20 || lastNameEditText.getText().toString().length() < 3) {
                     lastNameEditText.setError("PLEASE ENTER A VALID LAST NAME");
                     lastNameEditText.requestFocus();
 

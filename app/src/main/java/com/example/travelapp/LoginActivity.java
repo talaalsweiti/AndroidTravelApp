@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordEditText = findViewById(R.id.edtSignInPassword);
 
         sharedPrefManager = SharedPrefManager.getInstance(this);
-        emailEditText.setText(sharedPrefManager.readString("Email", "noValue"));
+        emailEditText.setText(sharedPrefManager.readString("Email", ""));
 
 
         btnLogIn.setOnClickListener(
