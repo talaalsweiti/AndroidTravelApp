@@ -75,7 +75,6 @@ public class SortedFragment extends Fragment {
             }
             binding.imageView.setVisibility(View.INVISIBLE);
         });
-//        binding.imageView.setVisibility(View.INVISIBLE);
     }
 
 

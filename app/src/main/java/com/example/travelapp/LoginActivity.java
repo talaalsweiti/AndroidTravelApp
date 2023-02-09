@@ -59,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                 // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
                                 String Preferredcontinent = searchUser.getString(4);
+
+                                NavigationDrawerActivity.user = new User(searchUser.getString(0),searchUser.getString(1),searchUser.getString(2),searchUser.getString(3),searchUser.getString(4));
+
                                 Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                                 intent.putExtra("message_key", Preferredcontinent);
 

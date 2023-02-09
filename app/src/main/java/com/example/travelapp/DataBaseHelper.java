@@ -10,7 +10,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public DataBaseHelper(Context context, String name,
                           SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-       //context.deleteDatabase("TRAVEL_APP");
+        //context.deleteDatabase("TRAVEL_APP");
 
     }
 
@@ -48,6 +48,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return sqLiteDatabase.rawQuery("SELECT * FROM USERS WHERE EMAIL=?", new String[]{email}, null);
     }
 
+    public void updateInformation(ContentValues contentValues, String email) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.update("USERS",contentValues,"EMAIL=?",new String[]{email});
+
+    }
+
     public void insertDestination(Destination destination) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -62,6 +68,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insertWithOnConflict("DESTINATIONS", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
 
     }
+
     public Cursor getRandomDestination(String continent) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CONTINENT=?", new String[]{continent}, null);
@@ -71,16 +78,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT CONTINENT,COUNTRY,CITY FROM DESTINATIONS ", null);
     }
+
     public Cursor numberOfDestinations(String continent) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CONTINENT=?", new String[]{continent}, null);
     }
-    public Cursor sortDestinations(String sortMethod){
+
+    public Cursor sortDestinations(String sortMethod) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         if (sortMethod.equals("asc"))
             return sqLiteDatabase.rawQuery("SELECT CITY,COST FROM DESTINATIONS ORDER BY COST ASC", null);
-         else
+        else
             return sqLiteDatabase.rawQuery("SELECT CITY,COST FROM DESTINATIONS ORDER BY COST DESC", null);
     }
 
