@@ -35,7 +35,15 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
         super.onPostExecute(s);
         List<Destination> destinations =
                 DestinationJasonParser.getObjectFromJason(s);
-        ((LoginActivity) activity).addDestinations(destinations);
+        try {
+            ((LoginActivity) activity).addDestinations(destinations);
+        } catch (ClassCastException ignored){
 
+        }
+        try {
+            ((SignupActivity) activity).addDestinations(destinations);
+        } catch (ClassCastException ignored){
+
+        }
     }
 }

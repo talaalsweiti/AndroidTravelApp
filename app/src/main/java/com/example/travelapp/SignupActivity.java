@@ -2,7 +2,10 @@ package com.example.travelapp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -103,23 +108,26 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 DataBaseHelper dataBaseHelper = new
                         DataBaseHelper(SignupActivity.this, "TRAVEL_APP", null, 1);
                 if (newUser.getEmail() != null && newUser.getPassword() != null && newUser.getFirstName() != null && newUser.getLastName() != null) {
+                    Cursor searchUser = dataBaseHelper.searchUser(emailEditText.getText().toString());
+                    if (searchUser.moveToFirst()) {
+                        if (searchUser.getString(0).compareTo(emailEditText.getText().toString()) == 0) {
+                            emailEditText.setError("USER ALREADY EXISTS");
+                            emailEditText.requestFocus();
+                        }
+                    } else {
+                        dataBaseHelper.insertUser(newUser);
+                      ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(SignupActivity.this);
+                      connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
 
-                    dataBaseHelper.insertUser(newUser);
+                      // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
+                      String Preferredcontinent = spin.getSelectedItem().toString();
+                      Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
+                      intent.putExtra("message_key", Preferredcontinent);
 
-                    Cursor allUsersCursor = dataBaseHelper.getAllUsers();
-                    LinearLayout ll = findViewById(R.id.LinearLayout);
-                    ll.removeAllViews();
-                    while (allUsersCursor.moveToNext()) {
-                        TextView textView11 = new TextView(SignupActivity.this);
-                        textView11.setText(
-                                "Email= " + allUsersCursor.getString(0)
-                                        + "\nFirst Name= " + allUsersCursor.getString(1)
-                                        + "\nLast Name= " + allUsersCursor.getString(2)
-                                        + "\nPassword= " + allUsersCursor.getString(3)
-                                        + "\nDest= " + allUsersCursor.getString(4)
-                                        + "\n\n"
-                        );
-                        ll.addView(textView11);
+                      SignupActivity.this.startActivity(intent);
+                      finish();
+
+
                     }
                 } else {
                     Toast.makeText(SignupActivity.this, "ERROR SIGN UP",
@@ -152,5 +160,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         SignupActivity.this.startActivity(intent);
     }
 
+    public void addDestinations(List<Destination> destinations) {
+        DataBaseHelper dataBaseHelper = new
+                DataBaseHelper(SignupActivity.this, "TRAVEL_APP", null, 1);
+        for (int i = 0; i < destinations.size(); i++)
+            dataBaseHelper.insertDestination(destinations.get(i));
+        dataBaseHelper.close();
+
+    }
 
 }
