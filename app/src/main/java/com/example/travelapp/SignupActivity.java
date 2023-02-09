@@ -105,6 +105,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 }
                 newUser.setDestination(spin.getSelectedItem().toString());
 
+
                 DataBaseHelper dataBaseHelper = new
                         DataBaseHelper(SignupActivity.this, "TRAVEL_APP", null, 1);
                 if (newUser.getEmail() != null && newUser.getPassword() != null && newUser.getFirstName() != null && newUser.getLastName() != null) {
@@ -116,6 +117,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                         }
                     } else {
                         dataBaseHelper.insertUser(newUser);
+                        NavigationDrawerActivity.user = newUser;
                       ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(SignupActivity.this);
                       connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
 
