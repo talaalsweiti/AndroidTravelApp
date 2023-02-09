@@ -10,7 +10,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public DataBaseHelper(Context context, String name,
                           SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        //context.deleteDatabase("TRAVEL_APP");
+        context.deleteDatabase("TRAVEL_APP");
 
     }
 
@@ -20,6 +20,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 " LASTNAME TEXT,PASSWORD TEXT,DESTINATION TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE DESTINATIONS(CITY TEXT PRIMARY KEY,COUNTRY TEXT," +
                 " CONTINENT TEXT,LONGITUDE REAL,LATITUDE REAL ,COST REAL,IMG TEXT,DESCRIPTION TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE FAV_DESTINATIONS(ID INTEGER PRIMARY KEY AUTOINCREMENT,CITY TEXT," +
+                " COUNTRY TEXT,EMAIL TEXT)");
+
     }
 
     @Override
@@ -66,7 +69,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("IMG", destination.getImg());
         contentValues.put("DESCRIPTION", destination.getDescription());
         sqLiteDatabase.insertWithOnConflict("DESTINATIONS", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
-
     }
 
     public Cursor getRandomDestination(String continent) {
@@ -96,5 +98,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor selectOneDestination(String city) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM DESTINATIONS WHERE CITY=?", new String[]{city}, null);
+    }
+
+    public void insertFavorite(String email, String city, String country) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("CITY", city);
+        contentValues.put("COUNTRY", country);
+        contentValues.put("EMAIL", email);
+        sqLiteDatabase.insertWithOnConflict("FAV_DESTINATIONS", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
+    public Cursor getFavorites(String email) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM FAV_DESTINATIONS WHERE EMAIL=?", new String[]{email}, null);
     }
 }

@@ -15,7 +15,8 @@ import com.example.travelapp.destinationFragments.ImageFragment;
 
 public class DestinationActivity extends AppCompatActivity {
     public static String city;
-
+    public static String country;
+    User currentUser;
     final DescriptionFragment descriptionFragment = new DescriptionFragment();
     final ImageFragment imageFragment = new ImageFragment();
     String desc , imgLink;
@@ -32,11 +33,12 @@ public class DestinationActivity extends AppCompatActivity {
         Button location = findViewById(R.id.location);
         TextView cityText = findViewById(R.id.city);
         cityText.setText(city);
-
+        currentUser = NavigationDrawerActivity.user;
         Cursor selectedCity = dataBaseHelper.selectOneDestination(city);
 
 
         while(selectedCity.moveToNext()) {
+            country = selectedCity.getString(1);
             desc = selectedCity.getString(7);
             imgLink = selectedCity.getString(6);
             longitude=selectedCity.getDouble(3);
@@ -48,10 +50,7 @@ public class DestinationActivity extends AppCompatActivity {
         TextView fav = findViewById(R.id.addFav);
 
         fav.setOnClickListener(view->{
-            /*
-            add the selectedCity to the database
-
-             */
+            dataBaseHelper.insertFavorite(currentUser.getEmail(),city,country);
         });
 
         description.setOnClickListener(view -> {
@@ -67,7 +66,6 @@ public class DestinationActivity extends AppCompatActivity {
             if (descriptionFragment.isAdded()) { ft.remove(descriptionFragment); }
             if (imageFragment.isAdded()) { ft.remove(imageFragment); }
             displayLocationFragment();
-
             ft.commit();
         });
     }

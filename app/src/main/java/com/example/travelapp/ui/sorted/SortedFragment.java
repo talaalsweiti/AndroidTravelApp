@@ -64,13 +64,13 @@ public class SortedFragment extends Fragment {
                     sortedViewModel.setSelectedOption(1);
                     sortDestination("asc");
                     binding.imageView.setVisibility(View.VISIBLE);
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.ascending));
+                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.ascending));
                     break;
                 case R.id.descending:
                     sortedViewModel.setSelectedOption(2);
                     sortDestination("des");
                     binding.imageView.setVisibility(View.VISIBLE);
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.descinding));
+                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.descinding));
                     break;
             }
             binding.imageView.setVisibility(View.INVISIBLE);
@@ -81,32 +81,32 @@ public class SortedFragment extends Fragment {
     public void sortDestination(String sortMethod) {
         navigationDrawerActivity = (NavigationDrawerActivity) getActivity();
         Cursor sortedDes = navigationDrawerActivity.sortedFragment(sortMethod);
-       int i =1;
+        int i = 1;
 
         while (sortedDes.moveToNext()) {
-            if(i==1) {
+            if (i == 1) {
                 binding.city1.setText(sortedDes.getString(0));
                 binding.cost1.setText(sortedDes.getString(1));
-            }else if(i==2){
+            } else if (i == 2) {
                 binding.city2.setText(sortedDes.getString(0));
                 binding.cost2.setText(sortedDes.getString(1));
-            }else if(i==3){
+            } else if (i == 3) {
                 binding.city3.setText(sortedDes.getString(0));
                 binding.cost3.setText(sortedDes.getString(1));
-            }else if(i==4){
+            } else if (i == 4) {
                 binding.city4.setText(sortedDes.getString(0));
                 binding.cost4.setText(sortedDes.getString(1));
-            }else if(i==5){
+            } else if (i == 5) {
                 binding.city5.setText(sortedDes.getString(0));
                 binding.cost5.setText(sortedDes.getString(1));
-            }else if(i==6){
+            } else if (i == 6) {
                 binding.city6.setText(sortedDes.getString(0));
 
                 binding.cost6.setText(sortedDes.getString(1));
-            }else if(i==7){
+            } else if (i == 7) {
                 binding.city7.setText(sortedDes.getString(0));
                 binding.cost7.setText(sortedDes.getString(1));
-            }else if(i==8){
+            } else if (i == 8) {
                 binding.city8.setText(sortedDes.getString(0));
                 binding.cost8.setText(sortedDes.getString(1));
             }
@@ -114,15 +114,6 @@ public class SortedFragment extends Fragment {
 
             i++;
         }
-
-
-
-
-
-
-
-
-
 
     }
 
