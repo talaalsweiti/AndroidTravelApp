@@ -56,19 +56,56 @@ public class FavoriteFragment extends Fragment {
 
         favoriteViewModel = new ViewModelProvider(this).get(FavoriteViewModel.class);
         binding.setLifecycleOwner(this);
-        Cursor favs = dataBaseHelper.getFavorites(currentUser.getEmail());
-
-
-        while(favs.moveToNext()) {
-            LinearLayout linearLayout = new LinearLayout(thisContext);
-            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            TextView city = new TextView(thisContext);
-            city.setText(favs.getString(0));
-            city.setPadding(5,5,5,5);
-            TextView country = new TextView(thisContext);
-            country.setText(favs.getString(1));
-
-            binding.favRoot.addView(linearLayout);
+        TextView city1 = binding.city1;
+        TextView city2 = binding.city2;
+        TextView city3 = binding.city3;
+        TextView city4 = binding.city4;
+        TextView city5 = binding.city5;
+        TextView city6 = binding.city6;
+        TextView city7 = binding.city7;
+        TextView city8 = binding.city8;
+        TextView country1 = binding.country1;
+        TextView country2 = binding.country2;
+        TextView country3 = binding.country3;
+        TextView country4 = binding.country4;
+        TextView country5 = binding.country5;
+        TextView country6 = binding.country6;
+        TextView country7 = binding.country7;
+        TextView country8 = binding.country8;
+        Cursor faves = dataBaseHelper.getFavorites(currentUser.getEmail());
+        while(faves.moveToNext()) {
+            if (city1.getText() == "") {
+                city1.setText(faves.getString(0));
+                country1.setText(faves.getString(1));
+            }
+            else if (city2.getText() == "") {
+                city2.setText(faves.getString(0));
+                country2.setText(faves.getString(1));
+            }
+            else if (city3.getText() == "") {
+                city3.setText(faves.getString(0));
+                country3.setText(faves.getString(1));
+            }
+            else if (city4.getText() == "") {
+                city4.setText(faves.getString(0));
+                country4.setText(faves.getString(1));
+            }
+            else if (city5.getText() == "") {
+                city5.setText(faves.getString(0));
+                country5.setText(faves.getString(1));
+            }
+            else if (city6.getText() == "") {
+                city6.setText(faves.getString(0));
+                country6.setText(faves.getString(1));
+            }
+            else if (city7.getText() == "") {
+                city7.setText(faves.getString(0));
+                country7.setText(faves.getString(1));
+            }
+            else if (city8.getText() == "") {
+                city8.setText(faves.getString(0));
+                country8.setText(faves.getString(1));
+            }
 
         }
 

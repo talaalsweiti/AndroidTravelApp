@@ -30,10 +30,9 @@ public class HomeFragment extends Fragment {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         thisContext = container.getContext();
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        displayRandom();
+     //  displayRandom();
         return root;
     }
 
@@ -50,7 +49,6 @@ public class HomeFragment extends Fragment {
         TextView continentText = binding.continent;
         TextView costText = binding.cost;
         TextView descText = binding.desc;
-
 
         int count = 0;
         navigationDrawerActivity = (NavigationDrawerActivity) getActivity();

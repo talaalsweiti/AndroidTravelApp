@@ -11,10 +11,16 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
         String> {
     Activity activity;
     Fragment fragment;
-
-
     public ConnectionAsyncTask(Activity activity) {
         this.activity = activity;
+//        Status s = ConnectionAsyncTask.this.getStatus();
+//        while (s != Status.FINISHED) {
+//            try {
+//                wait();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
     }
 
@@ -26,12 +32,13 @@ public class ConnectionAsyncTask extends AsyncTask<String, String,
 
     @Override
     protected String doInBackground(String... params) {
+
         return HttpManager.getData(params[0]);
+
     }
 
     @Override
     protected void onPostExecute(String s) {
-
         super.onPostExecute(s);
         List<Destination> destinations =
                 DestinationJasonParser.getObjectFromJason(s);

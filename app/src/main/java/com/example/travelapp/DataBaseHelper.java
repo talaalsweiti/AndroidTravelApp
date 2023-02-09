@@ -10,8 +10,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public DataBaseHelper(Context context, String name,
                           SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        context.deleteDatabase("TRAVEL_APP");
-
+//        context.deleteDatabase("TRAVEL_APP")
     }
 
     @Override
@@ -20,7 +19,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 " LASTNAME TEXT,PASSWORD TEXT,DESTINATION TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE DESTINATIONS(CITY TEXT PRIMARY KEY,COUNTRY TEXT," +
                 " CONTINENT TEXT,LONGITUDE REAL,LATITUDE REAL ,COST REAL,IMG TEXT,DESCRIPTION TEXT)");
-        sqLiteDatabase.execSQL("CREATE TABLE FAV_DESTINATIONS(ID INTEGER PRIMARY KEY AUTOINCREMENT,CITY TEXT," +
+        sqLiteDatabase.execSQL("CREATE TABLE FAV_DESTINATIONS(CITY TEXT PRIMARY KEY," +
                 " COUNTRY TEXT,EMAIL TEXT)");
 
     }
@@ -80,6 +79,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT CONTINENT,COUNTRY,CITY FROM DESTINATIONS ", null);
     }
+    public Cursor searchFavDestinations(String city) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT COUNT (*) FROM FAV_DESTINATIONS WHERE CITY=? ", new String[]{city}, null);
+
+    }
+
 
     public Cursor numberOfDestinations(String continent) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
@@ -111,6 +116,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor getFavorites(String email) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM FAV_DESTINATIONS WHERE EMAIL=?", new String[]{email}, null);
+        return sqLiteDatabase.rawQuery("SELECT * FROM FAV_DESTINATIONS WHERE EMAIL=? " , new String[]{email}, null);
+    }
+    public boolean deleteFavorite(String city) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+       return sqLiteDatabase.delete("FAV_DESTINATIONS","city=? ",new String[]{city}) >0;
     }
 }

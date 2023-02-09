@@ -117,6 +117,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                         }
                     } else {
                         dataBaseHelper.insertUser(newUser);
+                        dataBaseHelper.close();
                         NavigationDrawerActivity.user = newUser;
                       ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(SignupActivity.this);
                       connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
@@ -128,13 +129,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
                       SignupActivity.this.startActivity(intent);
                       finish();
-
-
-                    }
+                 }
+                    searchUser.close();
                 } else {
                     Toast.makeText(SignupActivity.this, "ERROR SIGN UP",
                             Toast.LENGTH_SHORT).show();
                 }
+
 
 
             }

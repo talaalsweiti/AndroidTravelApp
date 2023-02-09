@@ -37,7 +37,6 @@
             android:clickable="true"
             android:fontFamily="@font/comfortaabold"
 
-            android:text="@string/txtAddFav"
             android:textColor="@color/add_new_color"
             android:textSize="20sp" />
 

@@ -3,12 +3,14 @@ package com.example.travelapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.travelapp.destinationFragments.DescriptionFragment;
 import com.example.travelapp.destinationFragments.ImageFragment;
@@ -19,11 +21,12 @@ public class DestinationActivity extends AppCompatActivity {
     User currentUser;
     final DescriptionFragment descriptionFragment = new DescriptionFragment();
     final ImageFragment imageFragment = new ImageFragment();
-    String desc , imgLink;
-    double longitude,latitude;
+    String desc, imgLink;
+    double longitude, latitude;
     DataBaseHelper dataBaseHelper = new
             DataBaseHelper(DestinationActivity.this, "TRAVEL_APP", null, 1);
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,21 +40,38 @@ public class DestinationActivity extends AppCompatActivity {
         Cursor selectedCity = dataBaseHelper.selectOneDestination(city);
 
 
-        while(selectedCity.moveToNext()) {
+        while (selectedCity.moveToNext()) {
             country = selectedCity.getString(1);
             desc = selectedCity.getString(7);
             imgLink = selectedCity.getString(6);
-            longitude=selectedCity.getDouble(3);
-            latitude=selectedCity.getDouble(4);
+            longitude = selectedCity.getDouble(3);
+            latitude = selectedCity.getDouble(4);
 
         }
 
-
+        Cursor alreadyFav = dataBaseHelper.searchFavDestinations(city);
         TextView fav = findViewById(R.id.addFav);
 
-        fav.setOnClickListener(view->{
-            dataBaseHelper.insertFavorite(currentUser.getEmail(),city,country);
-        });
+        // DESTINATION NOT IN FAVORITES
+        while (alreadyFav.moveToNext()) {
+
+            if (Integer.parseInt(alreadyFav.getString(0)) == 0) {
+                fav.setText("Add to Favorites");
+                fav.setOnClickListener(view -> {
+                    dataBaseHelper.insertFavorite(currentUser.getEmail(), city, country);
+                    Toast.makeText(DestinationActivity.this, city + " DESTINATION ADDED TO FAVORITES SUCCESSFULLY",
+                            Toast.LENGTH_SHORT).show();
+                });
+            } else {
+                // DESTINATION ALREADY IN FAVORITES
+                fav.setText("Remove from Favorites");
+                fav.setOnClickListener(view -> {
+                    dataBaseHelper.deleteFavorite(city);
+                    Toast.makeText(DestinationActivity.this, city + " DESTINATION REMOVED FROM FAVORITES SUCCESSFULLY",
+                            Toast.LENGTH_SHORT).show();
+                });
+            }
+        }
 
         description.setOnClickListener(view -> {
             displayDescriptionFragment();
@@ -61,14 +81,19 @@ public class DestinationActivity extends AppCompatActivity {
             displayImageFragment();
         });
 
-        location.setOnClickListener(view->{
+        location.setOnClickListener(view -> {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            if (descriptionFragment.isAdded()) { ft.remove(descriptionFragment); }
-            if (imageFragment.isAdded()) { ft.remove(imageFragment); }
+            if (descriptionFragment.isAdded()) {
+                ft.remove(descriptionFragment);
+            }
+            if (imageFragment.isAdded()) {
+                ft.remove(imageFragment);
+            }
             displayLocationFragment();
             ft.commit();
         });
     }
+
     // Replace the switch method
     protected void displayDescriptionFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -78,7 +103,9 @@ public class DestinationActivity extends AppCompatActivity {
             DescriptionFragment.description = desc;
             ft.add(R.id.root_layout, descriptionFragment, "description");
         }
-        if (imageFragment.isAdded()) { ft.remove(imageFragment); }
+        if (imageFragment.isAdded()) {
+            ft.remove(imageFragment);
+        }
 
         ft.commit();
     }
@@ -92,14 +119,16 @@ public class DestinationActivity extends AppCompatActivity {
             ImageFragment.link = imgLink;
             ft.add(R.id.root_layout, imageFragment, "image");
         }
-        if (descriptionFragment.isAdded()) { ft.remove(descriptionFragment); }
+        if (descriptionFragment.isAdded()) {
+            ft.remove(descriptionFragment);
+        }
 
         ft.commit();
     }
 
     protected void displayLocationFragment() {
-        Intent mapsIntent =new Intent();
-        String location = "geo:" + latitude +","+ longitude;
+        Intent mapsIntent = new Intent();
+        String location = "geo:" + latitude + "," + longitude;
         mapsIntent.setAction(Intent.ACTION_VIEW);
         mapsIntent.setData(Uri.parse(location));
         startActivity(mapsIntent);

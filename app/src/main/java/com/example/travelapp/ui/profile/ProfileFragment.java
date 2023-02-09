@@ -96,7 +96,8 @@ public class ProfileFragment extends Fragment {
                 cv.put("PASSWORD",binding.password.getText().toString());
                 currentUser.setPassword(binding.password.getText().toString());
             }
-            cv.put("DESTINATION", currentUser.getDestination());
+            cv.put("DESTINATION", binding.spinner.toString());
+            currentUser.setDestination(binding.spinner.toString());
             Toast.makeText(thisContext, "data changed",
                     Toast.LENGTH_SHORT).show();
             dataBaseHelper.updateInformation(cv, currentUser.getEmail());
