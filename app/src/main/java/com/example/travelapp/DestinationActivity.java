@@ -50,7 +50,7 @@ public class DestinationActivity extends AppCompatActivity {
         }
         TextView fav = findViewById(R.id.addFav);
 
-        // DESTINATION NOT IN FAVORITES
+
         Cursor alreadyFav = dataBaseHelper.getFavorites(currentUser.getEmail());
 
 
@@ -68,15 +68,13 @@ public class DestinationActivity extends AppCompatActivity {
             fav.setText("Add to Favorites");
         }
 
-        boolean finalFlg = flg;
         fav.setOnClickListener(view -> {
-            if(finalFlg){
+            if(fav.getText().toString().compareTo("Remove from Favorites") == 0){
                 dataBaseHelper.deleteFavorite(city);
                 Toast.makeText(DestinationActivity.this, city + " DESTINATION REMOVED FROM FAVORITES SUCCESSFULLY",
                         Toast.LENGTH_SHORT).show();
                 fav.setText("Add to Favorites");
             }else{
-
                 dataBaseHelper.insertFavorite(currentUser.getEmail(), city, country);
                 Toast.makeText(DestinationActivity.this, city + " DESTINATION ADDED TO FAVORITES SUCCESSFULLY",
                         Toast.LENGTH_SHORT).show();

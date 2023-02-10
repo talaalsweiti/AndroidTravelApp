@@ -44,7 +44,7 @@ public class FavoriteFragment extends Fragment {
         thisContext = container.getContext();
         destinationIntent = new Intent(thisContext, DestinationActivity.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorite, container, false);
-
+        displayFaves() ;
         return binding.getRoot();
     }
 
@@ -81,6 +81,7 @@ public class FavoriteFragment extends Fragment {
                 city1.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city1.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
+
                 });
             } else if (city2.getText() == "") {
                 city2.setText(faves.getString(1));
@@ -88,7 +89,7 @@ public class FavoriteFragment extends Fragment {
                 city2.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city2.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
+
 
                 });
             } else if (city3.getText() == "") {
@@ -97,7 +98,7 @@ public class FavoriteFragment extends Fragment {
                 city3.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city3.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
+
 
                 });
             } else if (city4.getText() == "") {
@@ -106,7 +107,7 @@ public class FavoriteFragment extends Fragment {
                 city4.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city4.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
+
 
                 });
             } else if (city5.getText() == "") {
@@ -115,7 +116,7 @@ public class FavoriteFragment extends Fragment {
                 city5.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city5.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
+
 
                 });
             } else if (city6.getText() == "") {
@@ -124,7 +125,7 @@ public class FavoriteFragment extends Fragment {
                 city6.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city6.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
+
 
                 });
             } else if (city7.getText() == "") {
@@ -133,7 +134,6 @@ public class FavoriteFragment extends Fragment {
                 city7.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city7.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
 
                 });
             } else if (city8.getText() == "") {
@@ -142,7 +142,6 @@ public class FavoriteFragment extends Fragment {
                 city8.setOnClickListener(view1 -> {
                     DestinationActivity.city = (String) city8.getText();
                     FavoriteFragment.this.startActivity(destinationIntent);
-                    getActivity().finish();
 
                 });
             }
@@ -156,7 +155,7 @@ public class FavoriteFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        displayFaves();
+      //  displayFaves();
     }
 
     @Override
@@ -197,7 +196,5 @@ public class FavoriteFragment extends Fragment {
         country8.setText("");
         displayFaves();
     }
-
-
 
 }
