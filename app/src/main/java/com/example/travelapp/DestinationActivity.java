@@ -48,8 +48,6 @@ public class DestinationActivity extends AppCompatActivity {
             latitude = selectedCity.getDouble(4);
 
         }
-
-
         TextView fav = findViewById(R.id.addFav);
 
         // DESTINATION NOT IN FAVORITES
