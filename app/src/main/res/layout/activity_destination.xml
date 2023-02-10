@@ -23,7 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
-            android:text="Ramallah"
             android:textColor="@color/_bg__credit_card_checkout_____checkout_ek2_color"
             android:textSize="28sp"
             android:textStyle="bold" />
