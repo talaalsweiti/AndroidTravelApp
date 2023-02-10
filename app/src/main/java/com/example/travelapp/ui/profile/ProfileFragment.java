@@ -3,11 +3,12 @@ package com.example.travelapp.ui.profile;
 import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,11 +35,11 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        profileViewModel =  new ViewModelProvider(this).get(ProfileViewModel.class);
+        profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         thisContext = container.getContext();
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
-         return binding.getRoot();
+        return binding.getRoot();
     }
 
     @Override
@@ -64,47 +65,71 @@ public class ProfileFragment extends Fragment {
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(aa);
 
-        binding.userEmail.setText(currentUser.getEmail());
+        int spinnerPosition = aa.getPosition(currentUser.getDestination());
+        binding.spinner.setSelection(spinnerPosition);
+        final String[] des = {currentUser.getDestination()};
 
+        binding.spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(
+                            AdapterView<?> parent, View view, int position, long id) {
+                        profileViewModel.setSelectedOption(position);
+                        des[0] = continent[position];
+
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+
+        binding.userEmail.setText(currentUser.getEmail());
         binding.firstNameLayout.setHint(currentUser.getFirstName());
         binding.lastNameLayout.setHint(currentUser.getLastName());
 
-        binding.confirm.setOnClickListener(view1->{
-            if(!binding.firstNameEditText.getText().toString().isEmpty()&& binding.firstNameEditText.getText().toString().length() <= 20 && binding.firstNameEditText.getText().toString().length() >= 3 ){
-                cv.put("FIRSTNAME",binding.firstNameEditText.getText().toString());
+        binding.confirm.setOnClickListener(view1 -> {
+            if (!binding.firstNameEditText.getText().toString().isEmpty() && binding.firstNameEditText.getText().toString().length() <= 20 && binding.firstNameEditText.getText().toString().length() >= 3) {
+                cv.put("FIRSTNAME", binding.firstNameEditText.getText().toString());
                 currentUser.setFirstName(binding.firstNameEditText.getText().toString());
             }
 
-            if (!binding.lastNameEditText.getText().toString().isEmpty()&& binding.lastNameEditText.getText().toString().length() <=20&& binding.lastNameEditText.getText().toString().length() >= 3) {
-                cv.put("LASTNAME",binding.lastNameEditText.getText().toString());
+            if (!binding.lastNameEditText.getText().toString().isEmpty() && binding.lastNameEditText.getText().toString().length() <= 20 && binding.lastNameEditText.getText().toString().length() >= 3) {
+                cv.put("LASTNAME", binding.lastNameEditText.getText().toString());
                 currentUser.setLastName(binding.lastNameEditText.getText().toString());
             }
 
-            if (binding.password.getText().toString().isEmpty() || binding.password.getText().toString().length() > 15 || binding.password.getText().toString().length() < 8
+            if (!binding.password.getText().toString().isEmpty() && (binding.password.getText().toString().length() > 15 || binding.password.getText().toString().length() < 8
                     || !binding.password.getText().toString().matches(".*\\d.*")
                     || !binding.password.getText().toString().matches(".*[a-z].*")
-                    || !binding.password.getText().toString().matches(".*[A-Z].*")) {
+                    || !binding.password.getText().toString().matches(".*[A-Z].*"))) {
                 binding.password.setError("PLEASE ENTER A VALID PASSWORD");
                 binding.password.requestFocus();
-                cv.put("PASSWORD",currentUser.getPassword());
+                cv.put("PASSWORD", currentUser.getPassword());
 
             } else if (binding.password.getText().toString().compareTo(binding.confirmPassword.getText().toString()) != 0) {
                 binding.password.setError("PASSWORD DOES NOT MATCH");
                 binding.password.requestFocus();
-                cv.put("PASSWORD",currentUser.getPassword());
+                cv.put("PASSWORD", currentUser.getPassword());
             } else {
-                cv.put("PASSWORD",binding.password.getText().toString());
+                cv.put("PASSWORD", binding.password.getText().toString());
                 currentUser.setPassword(binding.password.getText().toString());
             }
-            cv.put("DESTINATION", binding.spinner.toString());
-            currentUser.setDestination(binding.spinner.toString());
-            Toast.makeText(thisContext, "data changed",
-                    Toast.LENGTH_SHORT).show();
+
+
+            cv.put("DESTINATION",  des[0]);
+            currentUser.setDestination( des[0]);
+
             dataBaseHelper.updateInformation(cv, currentUser.getEmail());
             binding.firstNameLayout.setHint(currentUser.getFirstName());
             binding.lastNameLayout.setHint(currentUser.getLastName());
+            Toast.makeText(thisContext, "Changes Confirmed",
+                    Toast.LENGTH_SHORT).show();
+
+
         });
 
 
     }
+
 }
