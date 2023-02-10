@@ -10,7 +10,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public DataBaseHelper(Context context, String name,
                           SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-
     }
 
     @Override
@@ -40,11 +39,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert("USERS", null, contentValues);
     }
 
-    public Cursor getAllUsers() {
-        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM USERS", null);
-    }
-
     public Cursor searchUser(String email) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM USERS WHERE EMAIL=?", new String[]{email}, null);
@@ -52,7 +46,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void updateInformation(ContentValues contentValues, String email) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.update("USERS",contentValues,"EMAIL=?",new String[]{email});
+        sqLiteDatabase.update("USERS", contentValues, "EMAIL=?", new String[]{email});
 
     }
 
@@ -115,6 +109,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public boolean deleteFavorite(String city) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.delete("FAV_DESTINATIONS","CITY=? ",new String[]{city}) >0;
+        return sqLiteDatabase.delete("FAV_DESTINATIONS", "CITY=? ", new String[]{city}) > 0;
     }
 }

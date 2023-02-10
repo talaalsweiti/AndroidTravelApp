@@ -2,12 +2,16 @@ package com.example.travelapp.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,10 +19,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.travelapp.DataBaseHelper;
 import com.example.travelapp.NavigationDrawerActivity;
 import com.example.travelapp.R;
 import com.example.travelapp.databinding.FragmentHomeBinding;
-import com.example.travelapp.ui.profile.ProfileViewModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
@@ -28,6 +33,8 @@ public class HomeFragment extends Fragment {
     Context thisContext;
     HomeViewModel homeViewModel ;
     NavigationDrawerActivity navigationDrawerActivity;
+    DataBaseHelper dataBaseHelper;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +42,9 @@ public class HomeFragment extends Fragment {
          homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         thisContext = container.getContext();
+        dataBaseHelper = new
+                DataBaseHelper(thisContext, "TRAVEL_APP", null, 1);
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         View root = binding.getRoot();
 
@@ -72,6 +82,21 @@ public class HomeFragment extends Fragment {
         continentText.setText(displayRandom.getString(2));
         costText.setText(displayRandom.getString(5) + "$");
         descText.setText( displayRandom.getString(7));
+
+        ImageView imageView = binding.image;
+        Picasso.get()
+                .load(displayRandom.getString(6))
+                .into(imageView);
+
+        binding.location.setOnClickListener(view -> {
+            Intent mapsIntent = new Intent();
+            String location = "geo:" + displayRandom.getString(4) + "," + displayRandom.getString(3);
+            mapsIntent.setAction(Intent.ACTION_VIEW);
+            mapsIntent.setData(Uri.parse(location));
+            startActivity(mapsIntent);
+        });
+
+
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -79,9 +104,36 @@ public class HomeFragment extends Fragment {
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding.setLifecycleOwner(this);
-
         displayRandom();
 
+
+        Cursor alreadyFav = dataBaseHelper.getFavorites(NavigationDrawerActivity.user.getEmail());
+
+        boolean flg = false;
+        while (alreadyFav.moveToNext()) {
+            //if exists
+            if (alreadyFav.getString(1).equals(binding.city.getText().toString())) {
+                binding.addFav.setText("Remove from Favorites");
+                flg=true;
+                break;
+            }
+        }
+        if(!flg){
+            binding.addFav.setText("Add to Favorites");
+        }
+        binding.addFav.setOnClickListener(view1 -> {
+            if(binding.addFav.getText().toString().compareTo("Remove from Favorites") == 0){
+                dataBaseHelper.deleteFavorite(binding.city.getText().toString());
+                Toast.makeText(thisContext, binding.city.getText().toString() + " DESTINATION REMOVED FROM FAVORITES SUCCESSFULLY",
+                        Toast.LENGTH_SHORT).show();
+                binding.addFav.setText("Add to Favorites");
+            }else{
+                dataBaseHelper.insertFavorite(NavigationDrawerActivity.user.getEmail(), binding.city.getText().toString(), binding.country.getText().toString());
+                Toast.makeText(thisContext, binding.city.getText().toString() + " DESTINATION ADDED TO FAVORITES SUCCESSFULLY",
+                        Toast.LENGTH_SHORT).show();
+                binding.addFav.setText("Remove from Favorites");
+            }
+        });
     }
 
 

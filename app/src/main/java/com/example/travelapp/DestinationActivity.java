@@ -55,7 +55,6 @@ public class DestinationActivity extends AppCompatActivity {
 
 
         boolean flg = false;
-
         while (alreadyFav.moveToNext()) {
             //if exists
             if (alreadyFav.getString(1).equals(city)) {
@@ -98,7 +97,7 @@ public class DestinationActivity extends AppCompatActivity {
             if (imageFragment.isAdded()) {
                 ft.remove(imageFragment);
             }
-            displayLocationFragment();
+            displayLocation();
             ft.commit();
         });
     }
@@ -135,7 +134,7 @@ public class DestinationActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    protected void displayLocationFragment() {
+    protected void displayLocation() {
         Intent mapsIntent = new Intent();
         String location = "geo:" + latitude + "," + longitude;
         mapsIntent.setAction(Intent.ACTION_VIEW);

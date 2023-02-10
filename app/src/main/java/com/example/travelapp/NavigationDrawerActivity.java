@@ -23,7 +23,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public static User user;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationDrawerBinding binding;
-//    public String Continent;
+
     DataBaseHelper dataBaseHelper = new
             DataBaseHelper(NavigationDrawerActivity.this, "TRAVEL_APP", null, 1);
 
@@ -31,10 +31,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        // GET THE USER'S PREFERRED CONTINENT
-//        Intent intent = getIntent();
-//        Continent = intent.getStringExtra("message_key");
 
         binding = ActivityNavigationDrawerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -90,14 +86,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
     public Cursor numberOfDestinations() {
         return dataBaseHelper.numberOfDestinations(user.getDestination());
-    }
-    /**
-     * Called when the user touches the button
-     */
-    public void addFav(View view) {
-        // Do something in response to button click
-        Toast.makeText(NavigationDrawerActivity.this, "DESTINATION ADDED TO FAVORITES SUCCESSFULLY",Toast.LENGTH_SHORT).show();
-
     }
 
 }
