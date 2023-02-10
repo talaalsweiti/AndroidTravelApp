@@ -49,29 +49,42 @@ public class DestinationActivity extends AppCompatActivity {
 
         }
 
-        Cursor alreadyFav = dataBaseHelper.searchFavDestinations(city);
+
         TextView fav = findViewById(R.id.addFav);
 
         // DESTINATION NOT IN FAVORITES
-        while (alreadyFav.moveToNext()) {
+        Cursor alreadyFav = dataBaseHelper.getFavorites(currentUser.getEmail());
 
-            if (Integer.parseInt(alreadyFav.getString(0)) == 0) {
-                fav.setText("Add to Favorites");
-                fav.setOnClickListener(view -> {
-                    dataBaseHelper.insertFavorite(currentUser.getEmail(), city, country);
-                    Toast.makeText(DestinationActivity.this, city + " DESTINATION ADDED TO FAVORITES SUCCESSFULLY",
-                            Toast.LENGTH_SHORT).show();
-                });
-            } else {
-                // DESTINATION ALREADY IN FAVORITES
+
+        boolean flg = false;
+
+        while (alreadyFav.moveToNext()) {
+            //if exists
+            if (alreadyFav.getString(1).equals(city)) {
                 fav.setText("Remove from Favorites");
-                fav.setOnClickListener(view -> {
-                    dataBaseHelper.deleteFavorite(city);
-                    Toast.makeText(DestinationActivity.this, city + " DESTINATION REMOVED FROM FAVORITES SUCCESSFULLY",
-                            Toast.LENGTH_SHORT).show();
-                });
+                flg=true;
+                break;
             }
         }
+        if(!flg){
+            fav.setText("Add to Favorites");
+        }
+
+        boolean finalFlg = flg;
+        fav.setOnClickListener(view -> {
+            if(finalFlg){
+                dataBaseHelper.deleteFavorite(city);
+                Toast.makeText(DestinationActivity.this, city + " DESTINATION REMOVED FROM FAVORITES SUCCESSFULLY",
+                        Toast.LENGTH_SHORT).show();
+                fav.setText("Add to Favorites");
+            }else{
+
+                dataBaseHelper.insertFavorite(currentUser.getEmail(), city, country);
+                Toast.makeText(DestinationActivity.this, city + " DESTINATION ADDED TO FAVORITES SUCCESSFULLY",
+                        Toast.LENGTH_SHORT).show();
+                fav.setText("Remove from Favorites");
+            }
+        });
 
         description.setOnClickListener(view -> {
             displayDescriptionFragment();

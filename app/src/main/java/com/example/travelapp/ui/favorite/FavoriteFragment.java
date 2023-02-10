@@ -1,6 +1,7 @@
 package com.example.travelapp.ui.favorite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import com.example.travelapp.NavigationDrawerActivity;
 import com.example.travelapp.R;
 import com.example.travelapp.User;
 import com.example.travelapp.databinding.FragmentFavoriteBinding;
+import com.example.travelapp.ui.all.AllFragment;
 
 
 public class FavoriteFragment extends Fragment {
@@ -30,6 +32,7 @@ public class FavoriteFragment extends Fragment {
     User currentUser;
     DataBaseHelper dataBaseHelper;
     Context thisContext;
+    Intent destinationIntent;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class FavoriteFragment extends Fragment {
                 new ViewModelProvider(this).get(FavoriteViewModel.class);
         currentUser = NavigationDrawerActivity.user;
         thisContext =container.getContext();
+        destinationIntent = new Intent(thisContext, DestinationActivity.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorite,container, false);
         dataBaseHelper= new
            DataBaseHelper(thisContext, "TRAVEL_APP", null, 1);
@@ -56,6 +60,7 @@ public class FavoriteFragment extends Fragment {
 
         favoriteViewModel = new ViewModelProvider(this).get(FavoriteViewModel.class);
         binding.setLifecycleOwner(this);
+
         TextView city1 = binding.city1;
         TextView city2 = binding.city2;
         TextView city3 = binding.city3;
@@ -72,39 +77,87 @@ public class FavoriteFragment extends Fragment {
         TextView country6 = binding.country6;
         TextView country7 = binding.country7;
         TextView country8 = binding.country8;
+
         Cursor faves = dataBaseHelper.getFavorites(currentUser.getEmail());
+
         while(faves.moveToNext()) {
             if (city1.getText() == "") {
-                city1.setText(faves.getString(0));
-                country1.setText(faves.getString(1));
+                city1.setText(faves.getString(1));
+                country1.setText(faves.getString(2));
+                city1.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city1.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                });
             }
             else if (city2.getText() == "") {
-                city2.setText(faves.getString(0));
-                country2.setText(faves.getString(1));
+                city2.setText(faves.getString(1));
+                country2.setText(faves.getString(2));
+                city2.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city2.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city3.getText() == "") {
-                city3.setText(faves.getString(0));
-                country3.setText(faves.getString(1));
+                city3.setText(faves.getString(1));
+                country3.setText(faves.getString(2));
+                city3.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city3.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city4.getText() == "") {
-                city4.setText(faves.getString(0));
-                country4.setText(faves.getString(1));
+                city4.setText(faves.getString(1));
+                country4.setText(faves.getString(2));
+                city4.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city4.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city5.getText() == "") {
-                city5.setText(faves.getString(0));
-                country5.setText(faves.getString(1));
+                city5.setText(faves.getString(1));
+                country5.setText(faves.getString(2));
+                city5.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city5.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city6.getText() == "") {
-                city6.setText(faves.getString(0));
-                country6.setText(faves.getString(1));
+                city6.setText(faves.getString(1));
+                country6.setText(faves.getString(2));
+                city6.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city6.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city7.getText() == "") {
-                city7.setText(faves.getString(0));
-                country7.setText(faves.getString(1));
+                city7.setText(faves.getString(1));
+                country7.setText(faves.getString(2));
+                city7.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city7.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
             else if (city8.getText() == "") {
-                city8.setText(faves.getString(0));
-                country8.setText(faves.getString(1));
+                city8.setText(faves.getString(1));
+                country8.setText(faves.getString(2));
+                city8.setOnClickListener(view1 -> {
+                    DestinationActivity.city = (String) city8.getText();
+                    FavoriteFragment.this.startActivity(destinationIntent);
+                    getActivity().finish();
+
+                });
             }
 
         }
