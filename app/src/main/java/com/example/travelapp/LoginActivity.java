@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
@@ -58,13 +59,16 @@ public class LoginActivity extends AppCompatActivity {
                                 ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(LoginActivity.this);
                                 connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
 
+                                try {
+                                    connectionAsyncTask.get();
+                                } catch (ExecutionException | InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
                                 // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
                                 String Preferredcontinent = searchUser.getString(4);
 
                                 NavigationDrawerActivity.user = new User(searchUser.getString(0),searchUser.getString(1),searchUser.getString(2),searchUser.getString(3),searchUser.getString(4));
-//                                while (connectionAsyncTask.getStatus() != AsyncTask.Status.FINISHED){
-//
-//                                }
 
                                 Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                                 intent.putExtra("message_key", Preferredcontinent);

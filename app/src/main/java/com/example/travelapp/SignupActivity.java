@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -117,16 +118,19 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                         }
                     } else {
                         dataBaseHelper.insertUser(newUser);
-                        dataBaseHelper.close();
                         NavigationDrawerActivity.user = newUser;
                       ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(SignupActivity.this);
                       connectionAsyncTask.execute("https://run.mocky.io/v3/d1a9c002-6e88-4d1e-9f39-930615876bca");
-
-                      // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
+                        try {
+                            connectionAsyncTask.get();
+                        } catch (ExecutionException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        // SEND THE USER'S PREFERRED CONTINENT TO NAVIGATION ACTIVITY
                       String Preferredcontinent = spin.getSelectedItem().toString();
                       Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
                       intent.putExtra("message_key", Preferredcontinent);
-
+                        dataBaseHelper.close();
                       SignupActivity.this.startActivity(intent);
                       finish();
                  }

@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     String[] continent = {"Asia", "Africa", "North America", "Europe"};
-    User currentUser;
+
     ProfileViewModel profileViewModel;
     DataBaseHelper dataBaseHelper;
     Context thisContext;
@@ -56,7 +56,6 @@ public class ProfileFragment extends Fragment {
         binding.setLifecycleOwner(this);
 
 
-        currentUser = NavigationDrawerActivity.user;
         dataBaseHelper = new
                 DataBaseHelper(thisContext, "TRAVEL_APP", null, 1);
         ContentValues cv = new ContentValues();
@@ -65,9 +64,9 @@ public class ProfileFragment extends Fragment {
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(aa);
 
-        int spinnerPosition = aa.getPosition(currentUser.getDestination());
+        int spinnerPosition = aa.getPosition(NavigationDrawerActivity.user.getDestination());
         binding.spinner.setSelection(spinnerPosition);
-        final String[] des = {currentUser.getDestination()};
+        final String[] des = {NavigationDrawerActivity.user.getDestination()};
 
         binding.spinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -84,19 +83,19 @@ public class ProfileFragment extends Fragment {
                 });
 
 
-        binding.userEmail.setText(currentUser.getEmail());
-        binding.firstNameLayout.setHint(currentUser.getFirstName());
-        binding.lastNameLayout.setHint(currentUser.getLastName());
+        binding.userEmail.setText(NavigationDrawerActivity.user.getEmail());
+        binding.firstNameLayout.setHint(NavigationDrawerActivity.user.getFirstName());
+        binding.lastNameLayout.setHint(NavigationDrawerActivity.user.getLastName());
 
         binding.confirm.setOnClickListener(view1 -> {
             if (!binding.firstNameEditText.getText().toString().isEmpty() && binding.firstNameEditText.getText().toString().length() <= 20 && binding.firstNameEditText.getText().toString().length() >= 3) {
                 cv.put("FIRSTNAME", binding.firstNameEditText.getText().toString());
-                currentUser.setFirstName(binding.firstNameEditText.getText().toString());
+                NavigationDrawerActivity.user.setFirstName(binding.firstNameEditText.getText().toString());
             }
 
             if (!binding.lastNameEditText.getText().toString().isEmpty() && binding.lastNameEditText.getText().toString().length() <= 20 && binding.lastNameEditText.getText().toString().length() >= 3) {
                 cv.put("LASTNAME", binding.lastNameEditText.getText().toString());
-                currentUser.setLastName(binding.lastNameEditText.getText().toString());
+                NavigationDrawerActivity.user.setLastName(binding.lastNameEditText.getText().toString());
             }
 
             if (!binding.password.getText().toString().isEmpty() && (binding.password.getText().toString().length() > 15 || binding.password.getText().toString().length() < 8
@@ -105,24 +104,28 @@ public class ProfileFragment extends Fragment {
                     || !binding.password.getText().toString().matches(".*[A-Z].*"))) {
                 binding.password.setError("PLEASE ENTER A VALID PASSWORD");
                 binding.password.requestFocus();
-                cv.put("PASSWORD", currentUser.getPassword());
+                cv.put("PASSWORD", NavigationDrawerActivity.user.getPassword());
 
             } else if (binding.password.getText().toString().compareTo(binding.confirmPassword.getText().toString()) != 0) {
                 binding.password.setError("PASSWORD DOES NOT MATCH");
                 binding.password.requestFocus();
-                cv.put("PASSWORD", currentUser.getPassword());
+                cv.put("PASSWORD", NavigationDrawerActivity.user.getPassword());
             } else {
-                cv.put("PASSWORD", binding.password.getText().toString());
-                currentUser.setPassword(binding.password.getText().toString());
+                if(binding.password.getText().toString().isEmpty()) {
+                    cv.put("PASSWORD",NavigationDrawerActivity.user.getPassword());
+                }else{
+                    cv.put("PASSWORD", binding.password.getText().toString());
+                    NavigationDrawerActivity.user.setPassword(binding.password.getText().toString());
+                }
             }
 
 
             cv.put("DESTINATION",  des[0]);
-            currentUser.setDestination( des[0]);
+            NavigationDrawerActivity.user.setDestination( des[0]);
 
-            dataBaseHelper.updateInformation(cv, currentUser.getEmail());
-            binding.firstNameLayout.setHint(currentUser.getFirstName());
-            binding.lastNameLayout.setHint(currentUser.getLastName());
+            dataBaseHelper.updateInformation(cv, NavigationDrawerActivity.user.getEmail());
+            binding.firstNameLayout.setHint(NavigationDrawerActivity.user.getFirstName());
+            binding.lastNameLayout.setHint(NavigationDrawerActivity.user.getLastName());
             Toast.makeText(thisContext, "Changes Confirmed",
                     Toast.LENGTH_SHORT).show();
 

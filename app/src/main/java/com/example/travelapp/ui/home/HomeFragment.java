@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.travelapp.NavigationDrawerActivity;
+import com.example.travelapp.R;
 import com.example.travelapp.databinding.FragmentHomeBinding;
+import com.example.travelapp.ui.profile.ProfileViewModel;
 
 import java.util.Random;
 
@@ -22,17 +26,18 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     Context thisContext;
+    HomeViewModel homeViewModel ;
     NavigationDrawerActivity navigationDrawerActivity;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        HomeViewModel homeViewModel =
+         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         thisContext = container.getContext();
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         View root = binding.getRoot();
-     //  displayRandom();
+
         return root;
     }
 
@@ -68,7 +73,16 @@ public class HomeFragment extends Fragment {
         costText.setText(displayRandom.getString(5) + "$");
         descText.setText( displayRandom.getString(7));
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        binding.setLifecycleOwner(this);
+
+        displayRandom();
+
+    }
 
 
 }

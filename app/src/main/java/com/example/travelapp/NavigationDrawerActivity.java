@@ -23,7 +23,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public static User user;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationDrawerBinding binding;
-    public String Continent;
+//    public String Continent;
     DataBaseHelper dataBaseHelper = new
             DataBaseHelper(NavigationDrawerActivity.this, "TRAVEL_APP", null, 1);
 
@@ -33,8 +33,8 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
 
         // GET THE USER'S PREFERRED CONTINENT
-        Intent intent = getIntent();
-        Continent = intent.getStringExtra("message_key");
+//        Intent intent = getIntent();
+//        Continent = intent.getStringExtra("message_key");
 
         binding = ActivityNavigationDrawerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -85,11 +85,11 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     }
 
     public Cursor homeFragment() {
-        return dataBaseHelper.getRandomDestination(Continent);
+        return dataBaseHelper.getRandomDestination(user.getDestination());
     }
 
     public Cursor numberOfDestinations() {
-        return dataBaseHelper.numberOfDestinations(Continent);
+        return dataBaseHelper.numberOfDestinations(user.getDestination());
     }
     /**
      * Called when the user touches the button
