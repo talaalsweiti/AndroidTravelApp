@@ -1,13 +1,11 @@
 # Android Travel application 
 ---
 ## Why I did this?
-This project has been done as a requirement for the ENCS5150 at Birzeit University 
+This project has been done as a requirement for the ENCS5150 course at Birzeit University 
 
 
 ## What is this proejct?
-It's a travel guide application. The application allows the user to request a list of possible travel destinations with detailed information about each location. The application should support multiple users, where each user should sign up first using an email address and a password. When users are logged in, they should be able to view travel 
-destinations and manage their personalized favorite list of destinations. When the application starts, it should get all the information about the travel destinations using REST. The information 
-includes the name of the destination city, country, its continent, the longitude and latitude, a short description, living costs, and URL of a featured image of the destination.
+It's a travel guide application. The application allows the user to request a list of possible travel destinations with detailed information about each location. The application should support multiple users, where each user should sign up first using an email address and a password. When users are logged in, they should be able to view travel destinations and manage their personalized favorite list of destinations. When the application starts, it should get all the information about the travel destinations using REST. The information includes the name of the destination city, country, its continent, the longitude and latitude, a short description, living costs, and URL of a featured image of the destination.
 
 ---
 ## Languages And Tools:
