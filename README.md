@@ -16,7 +16,7 @@ It's a travel guide application. The application allows the user to request a li
 ---
 
 ## You can see the final Result by clicking the below link:
----
+
 [Travel App Demo]( https://drive.google.com/file/d/16HYtXDAu9Du99q7wmwaRHzvFz9O0BnIk/view?usp=sharing )
 
 ---
